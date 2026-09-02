@@ -43,7 +43,7 @@ export function CartDrawer() {
                 <ShoppingBag className="size-6 text-muted-foreground" />
               </span>
               <p className="mt-5 font-display text-lg">Your cart is empty</p>
-              <p className="mt-1.5 text-sm text-muted-foreground">Choose Semaglutide+ or Tirzepatide+ to get started.</p>
+              <p className="mt-1.5 text-sm text-muted-foreground">Choose Semaglutide or Tirzepatide to get started.</p>
               <button
                 type="button"
                 className="mt-6 rounded-full border border-input px-5 py-2.5 text-sm font-semibold hover:bg-secondary"

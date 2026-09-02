@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | VitalWellRx",
   },
   description:
-    "Personalized Tirzepatide+ and Semaglutide+ weight-loss treatments with licensed U.S. providers, pharmacy fulfillment, and discreet delivery.",
+    "Personalized Tirzepatide and Semaglutide weight-loss treatments with licensed U.S. providers, pharmacy fulfillment, and discreet delivery.",
   icons: {
     icon: [{ url: "/brand/icon.svg", type: "image/svg+xml" }],
     shortcut: "/brand/icon.svg",

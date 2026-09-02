@@ -45,7 +45,7 @@ export default function CheckoutPage() {
       <section className="container-page py-20">
         <div className="mx-auto max-w-lg rounded-2xl border border-border bg-card p-8">
           <h1 className="text-3xl">Your cart is empty</h1>
-          <p className="mt-3 text-sm text-muted-foreground">Add Semaglutide+ or Tirzepatide+ to continue.</p>
+          <p className="mt-3 text-sm text-muted-foreground">Add Semaglutide or Tirzepatide to continue.</p>
           <Link
             href="/treatments"
             className="mt-6 inline-block rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground"

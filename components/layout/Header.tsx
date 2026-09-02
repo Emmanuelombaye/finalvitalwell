@@ -5,10 +5,9 @@ import Link from "next/link";
 import { ChevronDown, Menu, ShoppingBag, X } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { useCart } from "@/components/cart/CartProvider";
-import { products } from "@/lib/products";
+import { treatmentNavCategories } from "@/data/treatments-nav";
 
 const NAV = [
-  { href: "/treatments", label: "Treatments" },
   { href: "/shop", label: "Shop" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About" },
@@ -18,6 +17,7 @@ export function Header() {
   const { count, openCart } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
+  const [mobileTreatmentsOpen, setMobileTreatmentsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-[0_2px_10px_rgba(0,0,0,0.05)] backdrop-blur">
@@ -25,36 +25,59 @@ export function Header() {
         <Logo />
 
         <nav aria-label="Main" className="hidden flex-1 items-center justify-center gap-6 md:flex">
-          <div className="relative">
-            <button
-              type="button"
+          <div
+            className="relative"
+            onMouseEnter={() => setTreatmentsOpen(true)}
+            onMouseLeave={() => setTreatmentsOpen(false)}
+          >
+            <Link
+              href="/treatments"
               className="flex items-center gap-1 text-[0.95rem] font-semibold text-slate-900 whitespace-nowrap"
               aria-expanded={treatmentsOpen}
-              onClick={() => setTreatmentsOpen((open) => !open)}
-              onBlur={() => setTimeout(() => setTreatmentsOpen(false), 150)}
+              aria-haspopup="true"
             >
               Treatments
-              <ChevronDown className="size-4" />
-            </button>
+              <ChevronDown className={`size-4 transition-transform ${treatmentsOpen ? "rotate-180" : ""}`} />
+            </Link>
             {treatmentsOpen ? (
-              <div className="absolute top-full left-0 z-40 mt-2 min-w-56 rounded-xl border border-slate-200 bg-white p-2 shadow-[var(--shadow-lift)]">
-                <p className="px-3 pt-1 text-[11px] font-semibold tracking-wider text-gold uppercase">Weight Management</p>
-                {products.map((product) => (
-                  <Link
-                    key={product.slug}
-                    href={product.path}
-                    className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary"
-                  >
-                    {product.name}+ <span className="text-muted-foreground">${product.price}/mo</span>
-                  </Link>
+              <div className="absolute top-full left-1/2 z-40 mt-2 w-[min(22rem,calc(100vw-2rem))] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-3 shadow-[var(--shadow-lift)]">
+                {treatmentNavCategories.map((category) => (
+                  <div key={category.href} className="rounded-xl p-1">
+                    <Link
+                      href={category.href}
+                      className="block rounded-lg px-3 py-2 hover:bg-secondary"
+                    >
+                      <p className="text-[11px] font-semibold tracking-wider text-gold uppercase">{category.label}</p>
+                      {category.description ? (
+                        <p className="mt-0.5 text-xs text-muted-foreground">{category.description}</p>
+                      ) : null}
+                    </Link>
+                    <div className="mt-1 space-y-0.5">
+                      {category.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="flex items-center justify-between rounded-lg px-3 py-2 text-sm hover:bg-secondary"
+                        >
+                          <span>{item.label}</span>
+                          {item.price ? (
+                            <span className="text-muted-foreground">${item.price}/mo</span>
+                          ) : null}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 ))}
-                <Link href="/treatments" className="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-secondary">
-                  All treatments
+                <Link
+                  href="/treatments"
+                  className="mt-1 block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-secondary"
+                >
+                  View all treatments
                 </Link>
               </div>
             ) : null}
           </div>
-          {NAV.slice(1).map((item) => (
+          {NAV.map((item) => (
             <Link key={item.href} href={item.href} className="text-[0.95rem] font-semibold text-slate-900 whitespace-nowrap">
               {item.label}
             </Link>
@@ -92,28 +115,58 @@ export function Header() {
 
       {mobileOpen ? (
         <nav className="border-t border-slate-200 bg-white px-5 py-3 md:hidden">
-          <Link href="/treatments" className="block border-b border-slate-200 py-3 font-bold" onClick={() => setMobileOpen(false)}>
+          <button
+            type="button"
+            className="flex w-full items-center justify-between border-b border-slate-200 py-3 text-left font-bold"
+            aria-expanded={mobileTreatmentsOpen}
+            onClick={() => setMobileTreatmentsOpen((open) => !open)}
+          >
             Treatments
-          </Link>
-          {products.map((product) => (
+            <ChevronDown className={`size-4 transition-transform ${mobileTreatmentsOpen ? "rotate-180" : ""}`} />
+          </button>
+          {mobileTreatmentsOpen ? (
+            <div className="border-b border-slate-200 pb-2">
+              {treatmentNavCategories.map((category) => (
+                <div key={category.href}>
+                  <Link
+                    href={category.href}
+                    className="block py-2.5 pl-3 text-sm font-semibold text-slate-900"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {category.label}
+                  </Link>
+                  {category.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block py-2 pl-6 text-sm text-muted-foreground"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {item.label}
+                      {item.price ? ` — $${item.price}/mo` : ""}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+              <Link
+                href="/treatments"
+                className="block py-2.5 pl-3 text-sm font-semibold text-gold"
+                onClick={() => setMobileOpen(false)}
+              >
+                View all treatments
+              </Link>
+            </div>
+          ) : null}
+          {NAV.map((item) => (
             <Link
-              key={product.slug}
-              href={product.path}
-              className="block border-b border-slate-200 py-2.5 pl-3 text-sm text-muted-foreground"
+              key={item.href}
+              href={item.href}
+              className="block border-b border-slate-200 py-3 font-bold"
               onClick={() => setMobileOpen(false)}
             >
-              {product.name}+
+              {item.label}
             </Link>
           ))}
-          <Link href="/shop" className="block border-b border-slate-200 py-3 font-bold" onClick={() => setMobileOpen(false)}>
-            Shop
-          </Link>
-          <Link href="/how-it-works" className="block border-b border-slate-200 py-3 font-bold" onClick={() => setMobileOpen(false)}>
-            How It Works
-          </Link>
-          <Link href="/about" className="block border-b border-slate-200 py-3 font-bold" onClick={() => setMobileOpen(false)}>
-            About
-          </Link>
           <Link href="/get-started" className="mt-3 block rounded-full bg-navy py-3 text-center font-bold text-white" onClick={() => setMobileOpen(false)}>
             Get Started →
           </Link>

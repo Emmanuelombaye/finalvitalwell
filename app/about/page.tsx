@@ -6,7 +6,7 @@ import { contact, site } from "@/data/site";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "VitalWellRx delivers modern, patient-first telehealth for Personalized Tirzepatide+ and Semaglutide+ — licensed providers, transparent pharmacies, ongoing support.",
+    "VitalWellRx delivers modern, patient-first telehealth for Personalized Tirzepatide and Semaglutide — licensed providers, transparent pharmacies, ongoing support.",
 };
 
 export default function AboutPage() {
@@ -17,7 +17,7 @@ export default function AboutPage() {
         <p className="text-xs font-semibold tracking-[0.18em] text-gold uppercase">Company</p>
         <h1 className="mt-3 text-4xl md:text-5xl">About {site.name}</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          {site.dba} delivers modern, patient-first telehealth for Personalized Tirzepatide+ and Semaglutide+ —
+          {site.dba} delivers modern, patient-first telehealth for Personalized Tirzepatide and Semaglutide —
           licensed providers, transparent pharmacies, ongoing support.
         </p>
         <div className="mt-8 space-y-4 text-[0.95rem] leading-relaxed text-muted-foreground">
@@ -27,7 +27,7 @@ export default function AboutPage() {
             practice medicine.
           </p>
           <p>
-            We currently offer two clinician-guided weight-care programs — Semaglutide+ and Tirzepatide+. Complete a
+            We currently offer two clinician-guided weight-care programs — Semaglutide and Tirzepatide. Complete a
             short online intake. You are charged only if prescribed. Treatment is provided only if clinically
             appropriate after review by a US-licensed provider.
           </p>

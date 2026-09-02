@@ -36,7 +36,7 @@ export const PROGRAM_INCLUDES = [
 export const products: Product[] = [
   {
     slug: "semaglutide",
-    name: "Semaglutide+",
+    name: "Semaglutide",
     path: "/treatments/weight-management/semaglutide",
     form: "Injectable solution",
     strength: "2.5 mg/mL",
@@ -44,13 +44,13 @@ export const products: Product[] = [
     category: "Weight Management",
     short:
       "A clinician-guided weight-management program built around your history, not a one-size plan.",
-    headline: "Semaglutide+",
+    headline: "Semaglutide",
     tagline:
       "A GLP-1 based weight-management program with licensed-provider review, ongoing support, and one clear monthly price.",
     availability:
       "Available in eligible states. Availability varies by program and pharmacy coverage.",
     about: [
-      "The VitaWellRx® Semaglutide+ program is a clinician-guided weight-management program. You choose the program and complete checkout first; the required secure medical intake follows, and a licensed clinician then decides whether treatment is medically appropriate for you.",
+      "The VitaWellRx® Semaglutide program is a clinician-guided weight-management program. You choose the program and complete checkout first; the required secure medical intake follows, and a licensed clinician then decides whether treatment is medically appropriate for you.",
       "Semaglutide belongs to a class of medicines known as GLP-1 receptor agonists. Branded semaglutide products have been approved by the FDA for specific indications. Not every semaglutide formulation available through telehealth is the same as an FDA-approved branded product — compounded formulations are different products, and where a compounded formulation would be used, that is disclosed before fulfilment.",
       "Care is delivered asynchronously by default. You submit your intake, identification, and any requested information, and a clinician reviews it on their own schedule.",
       "People commonly considered for review include adults with weight-related health goals who can safely be managed remotely. Provider judgment governs.",
@@ -96,7 +96,7 @@ export const products: Product[] = [
   },
   {
     slug: "tirzepatide",
-    name: "Tirzepatide+",
+    name: "Tirzepatide",
     path: "/treatments/weight-management/tirzepatide",
     form: "Injectable solution",
     strength: "5 mg/mL",
@@ -104,13 +104,13 @@ export const products: Product[] = [
     category: "Weight Management",
     short:
       "A dual-pathway weight-management program for people reviewed and approved by a licensed clinician.",
-    headline: "Tirzepatide+",
+    headline: "Tirzepatide",
     tagline:
       "A clinician-guided weight-management program using tirzepatide, with provider review and one clear monthly price.",
     availability:
       "Available in eligible states, subject to pharmacy and regulatory review.",
     about: [
-      "The VitaWellRx® Tirzepatide+ program is a clinician-guided weight-management program. Purchase comes first, the secure medical intake follows, and a licensed clinician determines whether treatment is appropriate.",
+      "The VitaWellRx® Tirzepatide program is a clinician-guided weight-management program. Purchase comes first, the secure medical intake follows, and a licensed clinician determines whether treatment is appropriate.",
       "Tirzepatide is a dual GIP and GLP-1 receptor agonist. The FDA has approved branded tirzepatide products for specific indications. Those branded products are distinct from any compounded tirzepatide formulation, and VitaWellRx® does not describe a compounded formulation as Zepbound or Mounjaro.",
       "This program is generally considered for adults with weight-related health goals who can be managed safely at a distance.",
     ],

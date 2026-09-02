@@ -11,7 +11,7 @@ export default function Page() {
         FDA-approved branded drug.
       </p>
       <p>
-        VitaWellRx® Semaglutide+ and Tirzepatide+ programs may involve a compounded formulation. VitaWellRx® does not
+        VitaWellRx® Semaglutide and Tirzepatide programs may involve a compounded formulation. VitaWellRx® does not
         describe a compounded product as Ozempic, Wegovy, Mounjaro, or Zepbound.
       </p>
     </LegalPage>

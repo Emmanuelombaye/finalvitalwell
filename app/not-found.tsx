@@ -8,7 +8,7 @@ export default function NotFound() {
     <section className="container-page py-24 text-center">
       <h1 className="text-4xl">Page not found</h1>
       <p className="mx-auto mt-4 max-w-md text-muted-foreground">
-        That page is not available. Explore Semaglutide+ and Tirzepatide+ programs instead.
+        That page is not available. Explore Semaglutide and Tirzepatide programs instead.
       </p>
       <Link
         href="/treatments"

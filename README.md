@@ -1,6 +1,6 @@
 # VitalWellRx
 
-Next.js telehealth storefront for **Semaglutide+** and **Tirzepatide+** weight-management programs.
+Next.js telehealth storefront for **Semaglutide** and **Tirzepatide** weight-management programs.
 
 ## Local development
 
