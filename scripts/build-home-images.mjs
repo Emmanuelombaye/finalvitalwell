@@ -111,8 +111,8 @@ const brandCards = [
   },
   {
     out: "cards/shop-semaglutide.webp",
-    width: 800,
-    height: 1000,
+    width: 640,
+    height: 800,
     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
       <rect width="800" height="1000" fill="#dbeafe"/>
       <circle cx="400" cy="420" r="220" fill="#7dd3fc" opacity="0.35"/>
@@ -126,8 +126,8 @@ const brandCards = [
   },
   {
     out: "cards/shop-tirzepatide.webp",
-    width: 800,
-    height: 1000,
+    width: 640,
+    height: 800,
     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
       <rect width="800" height="1000" fill="#fef3c7"/>
       <circle cx="400" cy="420" r="220" fill="#fbbf24" opacity="0.25"/>
@@ -141,8 +141,8 @@ const brandCards = [
   },
   {
     out: "cards/shop-weight.webp",
-    width: 800,
-    height: 1000,
+    width: 640,
+    height: 800,
     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
       <rect width="800" height="1000" fill="#0b132b"/>
       <circle cx="620" cy="180" r="160" fill="#d4af37" opacity="0.18"/>
@@ -247,26 +247,56 @@ async function resolveAsset(name) {
 async function run() {
   await fs.mkdir(path.join(publicDir, "cards"), { recursive: true });
 
+  const heroWebp = path.join(publicDir, "hero.webp");
   const heroSrc = await resolveAsset("hero-vitalwell.jpg");
+
   if (heroSrc) {
     await sharp(heroSrc)
-      .resize({ width: 1600, withoutEnlargement: true })
-      .webp({ quality: 80, effort: 4 })
-      .toFile(path.join(publicDir, "hero.webp"));
-    console.log("hero.webp created");
+      .resize({ width: 1200, withoutEnlargement: true })
+      .webp({ quality: 76, effort: 6 })
+      .toFile(heroWebp);
+    console.log("hero.webp created from source");
+  } else {
+    try {
+      await fs.access(heroWebp);
+      const temp = `${heroWebp}.tmp`;
+      await sharp(heroWebp)
+        .resize({ width: 1200, withoutEnlargement: true })
+        .webp({ quality: 76, effort: 6 })
+        .toFile(temp);
+      await fs.rename(temp, heroWebp);
+      console.log("hero.webp recompressed");
+    } catch {
+      console.warn("skip hero.webp");
+    }
   }
 
+  const categoryWebp = path.join(publicDir, "category-weight.webp");
   const wellnessSrc = await resolveAsset("card-wellness.jpg");
+
   if (wellnessSrc) {
     await sharp(wellnessSrc)
       .resize({ width: 800, withoutEnlargement: true })
-      .webp({ quality: 80, effort: 4 })
+      .webp({ quality: 78, effort: 6 })
       .toFile(path.join(publicDir, "cards", "wellness.webp"));
     await sharp(wellnessSrc)
-      .resize({ width: 1600, withoutEnlargement: true })
-      .webp({ quality: 80, effort: 4 })
-      .toFile(path.join(publicDir, "category-weight.webp"));
+      .resize({ width: 1200, withoutEnlargement: true })
+      .webp({ quality: 76, effort: 6 })
+      .toFile(categoryWebp);
     console.log("wellness + category images created");
+  } else {
+    try {
+      await fs.access(categoryWebp);
+      const temp = `${categoryWebp}.tmp`;
+      await sharp(categoryWebp)
+        .resize({ width: 1200, withoutEnlargement: true })
+        .webp({ quality: 76, effort: 6 })
+        .toFile(temp);
+      await fs.rename(temp, categoryWebp);
+      console.log("category-weight.webp recompressed");
+    } catch {
+      console.warn("skip category-weight.webp");
+    }
   }
 
   for (const card of brandCards) {

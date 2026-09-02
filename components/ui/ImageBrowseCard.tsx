@@ -16,6 +16,7 @@ export function ImageBrowseCard({ card, variant = "tile" }: ImageBrowseCardProps
           src={card.image}
           alt=""
           fill
+          loading="lazy"
           sizes={
             variant === "wide"
               ? "(max-width: 768px) 100vw, 50vw"
@@ -68,9 +69,10 @@ type PageHeroProps = {
   description: string;
   image: string;
   imageAlt: string;
+  priority?: boolean;
 };
 
-export function PageHero({ eyebrow, title, description, image, imageAlt }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, image, imageAlt, priority = false }: PageHeroProps) {
   return (
     <section className="page-hero">
       <div className="container-page page-hero__grid">
@@ -81,7 +83,14 @@ export function PageHero({ eyebrow, title, description, image, imageAlt }: PageH
         </div>
         <div className="page-hero__visual">
           <div className="page-hero__image-wrap">
-            <Image src={image} alt={imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
+            <Image
+              src={image}
+              alt={imageAlt}
+              fill
+              priority={priority}
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </div>

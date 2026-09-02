@@ -26,8 +26,8 @@ export function VialArt({ product, className = "", priority = false, showGlow = 
     <Image
       src={src}
       alt={`${product.name} ${product.strength} ${product.form}, RX ONLY`}
-      width={800}
-      height={800}
+      width={400}
+      height={400}
       priority={priority}
       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 400px"
       className={`relative z-10 mx-auto h-full w-full object-contain object-center drop-shadow-[0_18px_28px_rgba(11,19,43,0.12)] ${className}`}

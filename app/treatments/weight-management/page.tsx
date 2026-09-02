@@ -22,13 +22,16 @@ export default function WeightManagementPage() {
         <p className="mt-4 max-w-2xl text-muted-foreground">
           Semaglutide and Tirzepatide, each with one all-inclusive monthly price.
         </p>
-        <Image
-          src="/images/hero.webp"
-          alt="Couple walking together outdoors"
-          width={1600}
-          height={900}
-          className="mt-8 h-64 w-full rounded-3xl object-cover object-[70%_30%] shadow-[var(--shadow-lift)] md:h-80"
-        />
+        <div className="relative mt-8 aspect-[16/7] w-full overflow-hidden rounded-3xl shadow-[var(--shadow-lift)]">
+          <Image
+            src="/images/category-weight.webp"
+            alt="Active person stretching outdoors at sunrise"
+            fill
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 78rem"
+            className="object-cover object-center"
+          />
+        </div>
         <div className="mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
           {products.map((product) => (
             <ProductCard key={product.slug} product={product} />

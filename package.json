@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "build-home-images": "node scripts/build-home-images.mjs"
+    "build-home-images": "node scripts/build-home-images.mjs",
+    "optimize-all-images": "node scripts/optimize-all-images.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.542.0",

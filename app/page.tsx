@@ -191,13 +191,15 @@ export default function HomePage() {
             href="/treatments/weight-management"
             className="group mt-10 block overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-[var(--shadow-lift)]"
           >
-            <Image
-              src="/images/category-weight.webp"
-              alt="Active man stretching outdoors at sunrise"
-              width={1600}
-              height={900}
-              className="aspect-[16/7] w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-            />
+        <Image
+          src="/images/category-weight.webp"
+          alt="Active person stretching outdoors at sunrise"
+          width={1200}
+          height={675}
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, 78rem"
+          className="aspect-[16/7] w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+        />
             <div className="p-6">
               <p className="text-xs font-semibold tracking-[0.18em] text-gold uppercase">Weight Management</p>
               <h3 className="mt-2 text-xl">Clinician-guided GLP-1 programs</h3>

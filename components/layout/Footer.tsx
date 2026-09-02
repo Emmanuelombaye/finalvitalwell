@@ -67,6 +67,7 @@ export function Footer() {
                   src="/brand/logo.webp"
                   alt={`${site.name} Logo`}
                   fill
+                  loading="lazy"
                   sizes="135px"
                   className="object-contain p-1"
                 />

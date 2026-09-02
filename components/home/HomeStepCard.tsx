@@ -9,6 +9,7 @@ export function HomeStepCard({ card }: { card: HomeStepCard }) {
           src={card.image}
           alt=""
           fill
+          loading="lazy"
           sizes="(max-width: 768px) 100vw, 25vw"
           className="object-cover"
         />

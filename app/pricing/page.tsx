@@ -33,8 +33,9 @@ export default function PricingPage() {
               <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
                 <Image
                   src={pricingImages[product.slug] ?? "/images/cards/pricing.webp"}
-                  alt=""
+                  alt={`${product.name} program`}
                   fill
+                  loading="lazy"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
