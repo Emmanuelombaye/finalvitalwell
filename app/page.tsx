@@ -10,9 +10,9 @@ import { homeFeatureCards, homeStats, homeStepCards } from "@/data/home";
 import { homeFaqs, products } from "@/lib/products";
 
 const TRUST = [
-  { icon: ShieldCheck, label: "Licensed-provider review" },
-  { icon: Tag, label: "Clear pricing" },
-  { icon: Truck, label: "Standard shipping included" },
+  { icon: ShieldCheck, label: "Licensed U.S. provider review" },
+  { icon: Tag, label: "Zero hidden fees" },
+  { icon: Truck, label: "U.S. licensed pharmacy fulfillment" },
   { icon: Lock, label: "Secure online intake" },
   { icon: MessageCircle, label: "Ongoing program support" },
 ];
@@ -41,29 +41,46 @@ const SAFETY_TILES = [
 export default function HomePage() {
   return (
     <>
+      <div className="home-announce">
+        <div className="container-page home-announce__inner">
+          <p>
+            No insurance needed. Provider-guided weight care when prescribed.{" "}
+            <Link href="/get-started" className="home-announce__link">
+              Start medical intake →
+            </Link>
+          </p>
+        </div>
+      </div>
+
       <section className="home-hero">
         <div className="container-page home-hero__grid">
           <div className="min-w-0">
             <p className="home-hero__eyebrow">
               <Sparkles className="size-3.5" aria-hidden />
-              VitaWellRx® telehealth
+              Doctor-guided telehealth
             </p>
-            <h1 className="home-hero__title">Your weight-care journey, built around you.</h1>
+            <h1 className="home-hero__title">
+              Your Care.
+              <br />
+              Your Way.
+            </h1>
             <p className="home-hero__lead">
-              Clinician-guided Semaglutide and Tirzepatide programs with one clear monthly price. Purchase first, then
-              complete your secure intake for licensed-provider review.
+              Provider-gated weight-management programs — Semaglutide and Tirzepatide reviewed by licensed U.S.
+              clinicians and delivered to your door. One clear monthly price. No hidden fees, ever. Complete checkout
+              first, then finish your secure medical intake.
             </p>
             <div className="home-hero__actions">
-              <Link href="/treatments" className="home-hero__cta-primary">
-                Explore Treatments <ArrowRight className="size-4" />
+              <Link href="/get-started" className="home-hero__cta-primary">
+                Check Eligibility <ArrowRight className="size-4" />
               </Link>
-              <Link href="/how-it-works" className="home-hero__cta-secondary">
-                See How It Works
+              <Link href="/treatments" className="home-hero__cta-secondary">
+                Explore Treatments
               </Link>
             </div>
             <p className="home-hero__note">
-              Consultation, program support, and standard shipping included. Treatment is never guaranteed.{" "}
-              <span className="font-medium text-slate-300">Available in eligible states.</span>
+              Consultation, program support, and standard shipping included when prescribed. Treatment is never
+              guaranteed. <span className="font-medium text-slate-300">Available in eligible states.</span>
+              <span className="mt-1 block text-xs text-slate-500">*Review timing not guaranteed.</span>
             </p>
             <div className="home-hero__stats">
               {homeStats.map((stat) => (

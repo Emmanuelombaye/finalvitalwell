@@ -78,6 +78,6 @@ export const homeStepCards: HomeStepCard[] = [
 export const homeStats = [
   { value: "$149", label: "Semaglutide from /mo" },
   { value: "$249", label: "Tirzepatide from /mo" },
-  { value: "100%", label: "Online intake & review" },
-  { value: "2", label: "Clinician-guided programs" },
+  { value: "24–48h", label: "Typical medical review*" },
+  { value: "0", label: "Hidden fees" },
 ] as const;

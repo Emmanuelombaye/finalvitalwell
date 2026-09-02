@@ -84,6 +84,33 @@
   }
 
   /* ── Homepage hero & cards ── */
+  .home-announce {
+    background: rgba(212, 175, 55, 0.12);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  }
+
+  .home-announce__inner {
+    padding: 0.65rem 0;
+    text-align: center;
+  }
+
+  .home-announce__inner p {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #0b132b;
+  }
+
+  .home-announce__link {
+    color: #8a7340;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .home-announce__link:hover {
+    color: #0b132b;
+  }
+
   .home-hero {
     position: relative;
     overflow: hidden;
