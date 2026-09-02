@@ -101,8 +101,8 @@ export function CartDrawer() {
                   <VialArt product={suggested} showGlow={false} className="size-full" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold">{suggested.name}</p>
-                  <p className="truncate text-xs text-muted-foreground">{suggested.category}</p>
+                  <p className="text-sm font-semibold">{suggested.name}</p>
+                  <p className="text-xs text-muted-foreground">{suggested.category}</p>
                 </div>
                 <p className="text-sm font-semibold">{formatUsd(suggested.price, 2)}</p>
                 <button

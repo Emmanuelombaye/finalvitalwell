@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { ProductCard } from "@/components/product/ProductCard";
+import { ProductCategoryLabel } from "@/components/product/ProductCategoryLabel";
 import { VialArt } from "@/components/product/VialArt";
 import { FaqList } from "@/components/ui/FaqList";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
@@ -48,10 +49,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           </p>
         </div>
         <div className="min-w-0">
-          <p className="flex items-center gap-2 text-xs font-semibold tracking-wide text-cat-weight uppercase">
-            <span className="size-1.5 rounded-full bg-cat-weight" />
-            {product.category}
-          </p>
+          <ProductCategoryLabel category={product.category} className="mt-0" />
           <h1 className="mt-2 text-4xl">{product.headline}</h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{product.tagline}</p>
           <p className="font-display mt-6 text-3xl">{formatUsd(product.price)}/month</p>

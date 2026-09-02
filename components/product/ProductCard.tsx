@@ -1,25 +1,22 @@
 import Link from "next/link";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { ProductCategoryLabel } from "@/components/product/ProductCategoryLabel";
 import { VialArt } from "@/components/product/VialArt";
 import { formatUsd, type Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-[var(--shadow-lift)]">
+    <article className="group flex min-w-0 flex-col rounded-2xl border border-border bg-card transition-shadow hover:shadow-[var(--shadow-lift)]">
       <Link
         href={product.path}
         tabIndex={-1}
         aria-hidden
-        className="grid h-52 place-items-center border-b border-border bg-gradient-to-b from-secondary to-white px-4 py-3"
+        className="grid h-52 place-items-center overflow-hidden rounded-t-2xl border-b border-border bg-gradient-to-b from-secondary to-white px-4 py-3"
       >
         <VialArt product={product} className="max-h-44 transition-transform duration-300 group-hover:scale-[1.03]" />
       </Link>
-      <div className="flex flex-1 flex-col p-5">
-        <p className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-semibold tracking-wide text-cat-weight">
-          <span className="size-1.5 shrink-0 rounded-full bg-cat-weight" aria-hidden />
-          <span className="break-words">{product.category}</span>
-        </p>
-        <h3 className="mt-2 text-xl">
+      <div className="flex min-w-0 flex-1 flex-col p-5">
+        <ProductCategoryLabel category={product.category} />        <h3 className="mt-2 text-xl">
           <Link href={product.path} className="hover:underline">
             {product.name}
           </Link>

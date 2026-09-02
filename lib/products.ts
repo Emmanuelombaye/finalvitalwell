@@ -41,7 +41,7 @@ export const products: Product[] = [
     form: "Injectable solution",
     strength: "2.5 mg/mL",
     price: 149,
-    category: "Weight Management",
+    category: "Weight care",
     short:
       "A clinician-guided weight-management program built around your history, not a one-size plan.",
     headline: "Semaglutide",
@@ -101,7 +101,7 @@ export const products: Product[] = [
     form: "Injectable solution",
     strength: "5 mg/mL",
     price: 249,
-    category: "Weight Management",
+    category: "Weight care",
     short:
       "A dual-pathway weight-management program for people reviewed and approved by a licensed clinician.",
     headline: "Tirzepatide",
