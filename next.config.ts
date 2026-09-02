@@ -7,8 +7,6 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/shop", destination: "/treatments", permanent: false },
-      { source: "/get-started", destination: "/treatments", permanent: false },
       {
         source: "/treatments/weight-loss",
         destination: "/treatments/weight-management/tirzepatide",

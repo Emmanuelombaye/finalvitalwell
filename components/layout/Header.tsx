@@ -9,6 +9,7 @@ import { treatmentNavCategories } from "@/data/treatments-nav";
 
 const NAV = [
   { href: "/shop", label: "Shop" },
+  { href: "/learn", label: "Learn" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About" },
 ];
