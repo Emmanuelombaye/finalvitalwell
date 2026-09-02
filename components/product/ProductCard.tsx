@@ -15,9 +15,9 @@ export function ProductCard({ product }: { product: Product }) {
         <VialArt product={product} className="max-h-44 transition-transform duration-300 group-hover:scale-[1.03]" />
       </Link>
       <div className="flex flex-1 flex-col p-5">
-        <p className="flex items-center gap-2 text-xs font-semibold tracking-wide text-cat-weight uppercase">
-          <span className="size-1.5 rounded-full bg-cat-weight" aria-hidden />
-          {product.category}
+        <p className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-semibold tracking-wide text-cat-weight">
+          <span className="size-1.5 shrink-0 rounded-full bg-cat-weight" aria-hidden />
+          <span className="break-words">{product.category}</span>
         </p>
         <h3 className="mt-2 text-xl">
           <Link href={product.path} className="hover:underline">
