@@ -72,9 +72,10 @@ type PageHeroProps = {
   image: string;
   imageAlt: string;
   priority?: boolean;
+  imageFit?: "cover" | "contain";
 };
 
-export function PageHero({ eyebrow, title, description, image, imageAlt, priority = false }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, image, imageAlt, priority = false, imageFit = "cover" }: PageHeroProps) {
   return (
     <section className="page-hero">
       <div className="container-page page-hero__grid">
@@ -88,10 +89,10 @@ export function PageHero({ eyebrow, title, description, image, imageAlt, priorit
             src={image}
             alt={imageAlt}
             aspect="16 / 11"
-            fit="cover"
+            fit={imageFit}
             priority={priority}
             sizes="(max-width: 1024px) 100vw, 45vw"
-            className="page-hero__image-wrap"
+            className={imageFit === "contain" ? "page-hero__image-wrap page-hero__image-wrap--contain" : "page-hero__image-wrap"}
           />
         </div>
       </div>

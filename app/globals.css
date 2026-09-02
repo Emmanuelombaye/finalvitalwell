@@ -384,7 +384,11 @@
 
   .home-step-card__media {
     overflow: hidden;
-    background: #0b132b;
+    background: #f7f5f2;
+  }
+
+  .home-step-card__media--contain {
+    background: linear-gradient(to bottom, #f7f5f2, #ffffff);
   }
 
   .home-step-card__badge {
@@ -489,8 +493,12 @@
     overflow: hidden;
     border-radius: 1.5rem;
     border: 1px solid var(--color-border);
-    background: #0b132b;
+    background: #f7f5f2;
     box-shadow: var(--shadow-lift);
+  }
+
+  .page-hero__image-wrap--contain {
+    background: linear-gradient(to bottom, #f7f5f2, #ffffff);
   }
 
   .browse-page-intro {
@@ -700,7 +708,7 @@
   .media-frame__img--contain {
     object-fit: contain;
     object-position: center;
-    padding: 1.25rem;
+    padding: 0;
   }
 
   .category-banner__media {

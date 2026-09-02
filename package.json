@@ -12,6 +12,7 @@
     "lint": "next lint",
     "optimize-images": "node scripts/optimize-images.mjs",
     "build-hiw-images": "node scripts/build-hiw-images.mjs",
+    "import-user-images": "node scripts/import-user-images.mjs",
     "optimize-all-images": "node scripts/optimize-all-images.mjs"
   },
   "dependencies": {
