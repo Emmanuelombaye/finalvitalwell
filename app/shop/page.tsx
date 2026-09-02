@@ -3,11 +3,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BrowseSectionBlock, PageHero } from "@/components/ui/ImageBrowseCard";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
+import { images } from "@/data/images";
 import { shopSections } from "@/data/browse-cards";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Browse VitaWellRx® weight-management programs, pricing, and patient support.",
+  description: "Browse VitaWellRx weight-management programs, pricing, and patient support.",
 };
 
 export default function ShopPage() {
@@ -15,10 +16,10 @@ export default function ShopPage() {
     <>
       <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Shop" }]} />
       <PageHero
-        eyebrow="Shop VitaWellRx®"
+        eyebrow="Shop"
         title="Find the program that fits your goals."
         description="Browse clinician-guided weight-management programs with transparent monthly pricing and licensed-provider review."
-        image="/images/cards/shop-weight.webp"
+        image={images.category}
         imageAlt="VitaWellRx weight management programs"
       />
       <section className="container-page pb-20 pt-10">

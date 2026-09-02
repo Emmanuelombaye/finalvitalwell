@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { HomeStepCard } from "@/components/home/HomeStepCard";
 import { ImageBrowseCard, PageHero } from "@/components/ui/ImageBrowseCard";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
+import { images } from "@/data/images";
 import { homeStepCards } from "@/data/home";
 
 export const metadata: Metadata = { title: "How It Works" };
@@ -13,13 +14,13 @@ const EXTRA_STEPS = [
     step: 5,
     title: "Create your account",
     description: "Use the same email from checkout so orders, intake, and messages stay in one place.",
-    image: "/images/cards/care-portal.webp",
+    image: images.consult,
   },
   {
     step: 6,
-    title: "Fulfilment & support",
+    title: "Fulfilment and support",
     description: "If approved, standard shipping is included. Follow-up stays inside your account.",
-    image: "/images/cards/delivery.webp",
+    image: images.delivery,
   },
 ];
 
@@ -31,10 +32,10 @@ export default function HowItWorksPage() {
       <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "How It Works" }]} />
       <PageHero
         eyebrow="Onboarding"
-        title="How VitaWellRx® works."
+        title="How VitaWellRx works."
         description="Purchase first, then complete intake. A licensed clinician decides whether treatment is appropriate."
-        image="/images/cards/step-checkout.webp"
-        imageAlt="VitaWellRx checkout and onboarding process"
+        image={images.hero}
+        imageAlt="VitaWellRx care experience"
       />
       <section className="container-page pb-20 pt-10">
         <ol className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -53,9 +54,8 @@ export default function HowItWorksPage() {
               card={{
                 title: "Check eligibility",
                 description: "Start with a short review of programs and state availability.",
-                image: "/images/cards/get-started.webp",
+                image: images.hero,
                 href: "/get-started",
-                badge: "Start",
               }}
               variant="wide"
             />
@@ -63,9 +63,9 @@ export default function HowItWorksPage() {
               card={{
                 title: "Browse programs",
                 description: "Compare Semaglutide and Tirzepatide with transparent pricing.",
-                image: "/images/cards/shop-weight.webp",
+                image: images.vials.semaglutide,
                 href: "/shop",
-                badge: "Shop",
+                imageFit: "contain",
               }}
               variant="wide"
             />

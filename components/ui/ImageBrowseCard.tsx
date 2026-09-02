@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { MediaImage } from "@/components/ui/MediaImage";
 import type { BrowseCard } from "@/data/browse-cards";
 
 type ImageBrowseCardProps = {
@@ -8,28 +8,30 @@ type ImageBrowseCardProps = {
   variant?: "tile" | "wide" | "compact";
 };
 
+const ASPECT: Record<string, string> = {
+  tile: "4 / 5",
+  wide: "16 / 10",
+  compact: "1 / 1",
+};
+
 export function ImageBrowseCard({ card, variant = "tile" }: ImageBrowseCardProps) {
+  const fit = card.imageFit ?? "cover";
+
   return (
     <Link href={card.href} className={`browse-card browse-card--${variant} group`}>
-      <div className="browse-card__media">
-        <Image
-          src={card.image}
-          alt=""
-          fill
-          loading="lazy"
-          sizes={
-            variant === "wide"
-              ? "(max-width: 768px) 100vw, 50vw"
-              : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          }
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="browse-card__overlay" aria-hidden />
-        {card.badge ? <span className="browse-card__badge">{card.badge}</span> : null}
-        {card.price ? <span className="browse-card__price">{card.price}</span> : null}
-      </div>
+      <MediaImage
+        src={card.image}
+        alt={card.title}
+        aspect={ASPECT[variant]}
+        fit={fit}
+        sizes={
+          variant === "wide"
+            ? "(max-width: 768px) 100vw, 50vw"
+            : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        }
+        className={fit === "contain" ? "browse-card__media browse-card__media--contain" : "browse-card__media"}
+      />
       <div className="browse-card__body">
-        {card.eyebrow ? <p className="browse-card__eyebrow">{card.eyebrow}</p> : null}
         <h3 className="browse-card__title">{card.title}</h3>
         <p className="browse-card__text">{card.description}</p>
         <span className="browse-card__cta">
@@ -82,16 +84,15 @@ export function PageHero({ eyebrow, title, description, image, imageAlt, priorit
           <p className="page-hero__description">{description}</p>
         </div>
         <div className="page-hero__visual">
-          <div className="page-hero__image-wrap">
-            <Image
-              src={image}
-              alt={imageAlt}
-              fill
-              priority={priority}
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
-            />
-          </div>
+          <MediaImage
+            src={image}
+            alt={imageAlt}
+            aspect="16 / 11"
+            fit="cover"
+            priority={priority}
+            sizes="(max-width: 1024px) 100vw, 45vw"
+            className="page-hero__image-wrap"
+          />
         </div>
       </div>
     </section>

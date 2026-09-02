@@ -1,9 +1,12 @@
+import { images } from "@/data/images";
+
 export type HomeFeatureCard = {
   title: string;
   description: string;
   image: string;
   href: string;
   eyebrow: string;
+  imageFit?: "cover" | "contain";
 };
 
 export type HomeStepCard = {
@@ -11,6 +14,7 @@ export type HomeStepCard = {
   title: string;
   description: string;
   image: string;
+  imageFit?: "cover" | "contain";
 };
 
 export const homeFeatureCards: HomeFeatureCard[] = [
@@ -19,23 +23,24 @@ export const homeFeatureCards: HomeFeatureCard[] = [
     title: "Provider review on your schedule",
     description:
       "Complete your secure intake after checkout. An independent US-licensed clinician reviews your health history remotely.",
-    image: "/images/cards/consult.webp",
+    image: images.consult,
     href: "/how-it-works",
   },
   {
     eyebrow: "Clear pricing",
     title: "One monthly program price",
     description:
-      "Semaglutide from $149/mo and Tirzepatide from $249/mo — consultation, support, and standard shipping included.",
-    image: "/images/cards/pricing.webp",
+      "Semaglutide from $149 per month and Tirzepatide from $249 per month. Consultation, support, and standard shipping included.",
+    image: images.vials.semaglutide,
     href: "/pricing",
+    imageFit: "contain",
   },
   {
     eyebrow: "Fulfillment",
     title: "Discreet pharmacy delivery",
     description:
       "When prescribed, medication is fulfilled through licensed US pharmacies with standard shipping included.",
-    image: "/images/cards/delivery.webp",
+    image: images.delivery,
     href: "/shipping",
   },
   {
@@ -43,7 +48,7 @@ export const homeFeatureCards: HomeFeatureCard[] = [
     title: "Support beyond the first visit",
     description:
       "Message your care team, manage your program, and stay on track with ongoing follow-up built into every plan.",
-    image: "/images/cards/wellness.webp",
+    image: images.wellness,
     href: "/account",
   },
 ];
@@ -53,25 +58,26 @@ export const homeStepCards: HomeStepCard[] = [
     step: 1,
     title: "Choose your program",
     description: "Compare Semaglutide and Tirzepatide with transparent all-inclusive pricing.",
-    image: "/images/cards/step-choose.webp",
+    image: images.vials.semaglutide,
+    imageFit: "contain",
   },
   {
     step: 2,
     title: "Complete checkout",
-    description: "Purchase your VitaWellRx® program securely online in minutes.",
-    image: "/images/cards/step-checkout.webp",
+    description: "Purchase your VitaWellRx program securely online in minutes.",
+    image: images.consult,
   },
   {
     step: 3,
     title: "Finish your intake",
     description: "Submit your secure health questionnaire and identification after checkout.",
-    image: "/images/cards/consult.webp",
+    image: images.hero,
   },
   {
     step: 4,
     title: "Provider review",
     description: "A licensed clinician determines whether treatment is medically appropriate for you.",
-    image: "/images/cards/step-review.webp",
+    image: images.delivery,
   },
 ];
 

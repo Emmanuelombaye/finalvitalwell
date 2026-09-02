@@ -1,17 +1,19 @@
-import Image from "next/image";
+import { MediaImage } from "@/components/ui/MediaImage";
 import type { HomeStepCard } from "@/data/home";
 
 export function HomeStepCard({ card }: { card: HomeStepCard }) {
+  const fit = card.imageFit ?? "cover";
+
   return (
     <li className="home-step-card">
-      <div className="home-step-card__media">
-        <Image
+      <div className="home-step-card__media-wrap">
+        <MediaImage
           src={card.image}
-          alt=""
-          fill
-          loading="lazy"
+          alt={card.title}
+          aspect="16 / 10"
+          fit={fit}
           sizes="(max-width: 768px) 100vw, 25vw"
-          className="object-cover"
+          className={fit === "contain" ? "home-step-card__media home-step-card__media--contain" : "home-step-card__media"}
         />
         <span className="home-step-card__badge">{card.step}</span>
       </div>

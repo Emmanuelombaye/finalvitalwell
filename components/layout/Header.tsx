@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, Menu, ShoppingBag, X } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { useCart } from "@/components/cart/CartProvider";
-import { treatmentNavCategories } from "@/data/treatments-nav";
+import { treatmentNavLinks } from "@/data/treatments-nav";
 
 const NAV = [
   { href: "/shop", label: "Shop" },
@@ -19,6 +19,16 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const [mobileTreatmentsOpen, setMobileTreatmentsOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openTreatments = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setTreatmentsOpen(true);
+  };
+
+  const closeTreatments = () => {
+    closeTimer.current = setTimeout(() => setTreatmentsOpen(false), 120);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-[0_2px_10px_rgba(0,0,0,0.05)] backdrop-blur">
@@ -26,55 +36,31 @@ export function Header() {
         <Logo />
 
         <nav aria-label="Main" className="hidden flex-1 items-center justify-center gap-6 md:flex">
-          <div
-            className="relative"
-            onMouseEnter={() => setTreatmentsOpen(true)}
-            onMouseLeave={() => setTreatmentsOpen(false)}
-          >
-            <Link
-              href="/treatments"
+          <div className="relative" onMouseEnter={openTreatments} onMouseLeave={closeTreatments}>
+            <button
+              type="button"
               className="flex items-center gap-1 text-[0.95rem] font-semibold text-slate-900 whitespace-nowrap"
               aria-expanded={treatmentsOpen}
               aria-haspopup="true"
+              onClick={() => setTreatmentsOpen((open) => !open)}
             >
               Treatments
               <ChevronDown className={`size-4 transition-transform ${treatmentsOpen ? "rotate-180" : ""}`} />
-            </Link>
+            </button>
             {treatmentsOpen ? (
-              <div className="absolute top-full left-1/2 z-40 mt-2 w-[min(22rem,calc(100vw-2rem))] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-3 shadow-[var(--shadow-lift)]">
-                {treatmentNavCategories.map((category) => (
-                  <div key={category.href} className="rounded-xl p-1">
+              <div className="absolute top-full left-1/2 z-40 w-56 -translate-x-1/2 pt-2">
+                <div className="rounded-xl border border-slate-200 bg-white py-2 shadow-[var(--shadow-lift)]">
+                  {treatmentNavLinks.map((item) => (
                     <Link
-                      href={category.href}
-                      className="block rounded-lg px-3 py-2 hover:bg-secondary"
+                      key={item.href}
+                      href={item.href}
+                      className="block px-4 py-2.5 text-sm text-slate-900 hover:bg-secondary"
+                      onClick={() => setTreatmentsOpen(false)}
                     >
-                      <p className="text-[11px] font-semibold tracking-wider text-gold uppercase">{category.label}</p>
-                      {category.description ? (
-                        <p className="mt-0.5 text-xs text-muted-foreground">{category.description}</p>
-                      ) : null}
+                      {item.label}
                     </Link>
-                    <div className="mt-1 space-y-0.5">
-                      {category.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="flex items-center justify-between rounded-lg px-3 py-2 text-sm hover:bg-secondary"
-                        >
-                          <span>{item.label}</span>
-                          {item.price ? (
-                            <span className="text-muted-foreground">${item.price}/mo</span>
-                          ) : null}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-                <Link
-                  href="/treatments"
-                  className="mt-1 block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-secondary"
-                >
-                  View all treatments
-                </Link>
+                  ))}
+                </div>
               </div>
             ) : null}
           </div>
@@ -127,35 +113,16 @@ export function Header() {
           </button>
           {mobileTreatmentsOpen ? (
             <div className="border-b border-slate-200 pb-2">
-              {treatmentNavCategories.map((category) => (
-                <div key={category.href}>
-                  <Link
-                    href={category.href}
-                    className="block py-2.5 pl-3 text-sm font-semibold text-slate-900"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {category.label}
-                  </Link>
-                  {category.items.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block py-2 pl-6 text-sm text-muted-foreground"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {item.label}
-                      {item.price ? ` — $${item.price}/mo` : ""}
-                    </Link>
-                  ))}
-                </div>
+              {treatmentNavLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block py-2.5 pl-3 text-sm text-slate-900"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
               ))}
-              <Link
-                href="/treatments"
-                className="block py-2.5 pl-3 text-sm font-semibold text-gold"
-                onClick={() => setMobileOpen(false)}
-              >
-                View all treatments
-              </Link>
             </div>
           ) : null}
           {NAV.map((item) => (

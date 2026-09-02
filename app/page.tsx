@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Lock, MessageCircle, ShieldCheck, Sparkles, Tag, Truck } from "lucide-react";
 import { HomeFeatureCard } from "@/components/home/HomeFeatureCard";
@@ -6,6 +5,7 @@ import { HomeStepCard } from "@/components/home/HomeStepCard";
 import { ProductCard } from "@/components/product/ProductCard";
 import { FaqList } from "@/components/ui/FaqList";
 import { DemoNotice } from "@/components/ui/DemoNotice";
+import { MediaImage } from "@/components/ui/MediaImage";
 import { homeFeatureCards, homeStats, homeStepCards } from "@/data/home";
 import { homeFaqs, products } from "@/lib/products";
 
@@ -93,14 +93,15 @@ export default function HomePage() {
           </div>
 
           <div className="home-hero__visual min-w-0">
-            <div className="home-hero__image-wrap">
-              <Image
+            <div className="home-hero__image-shell">
+              <MediaImage
                 src="/images/hero.webp"
                 alt="Confident woman preparing a healthy breakfast in a bright modern kitchen"
-                fill
+                aspect="16 / 11"
+                fit="cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center"
+                className="home-hero__image-wrap"
               />
               <div className="home-hero__badge">
                 <span className="home-hero__badge-kicker">VitaWellRx®</span>
@@ -191,18 +192,17 @@ export default function HomePage() {
             href="/treatments/weight-management"
             className="group mt-10 block overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-[var(--shadow-lift)]"
           >
-        <Image
-          src="/images/category-weight.webp"
-          alt="Active person stretching outdoors at sunrise"
-          width={1200}
-          height={675}
-          loading="lazy"
-          sizes="(max-width: 768px) 100vw, 78rem"
-          className="aspect-[16/7] w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-        />
+            <MediaImage
+              src="/images/category-weight.webp"
+              alt="Active person stretching outdoors at sunrise"
+              aspect="16 / 7"
+              fit="cover"
+              sizes="(max-width: 768px) 100vw, 78rem"
+              className="category-banner__media transition-transform duration-500 group-hover:scale-[1.03]"
+            />
             <div className="p-6">
               <p className="text-xs font-semibold tracking-[0.18em] text-gold uppercase">Weight Management</p>
-              <h3 className="mt-2 text-xl">Clinician-guided GLP-1 programs</h3>
+              <h3 className="mt-2 text-xl">Weight management programs</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 Semaglutide and Tirzepatide programs built around your health history — not a one-size plan.
               </p>

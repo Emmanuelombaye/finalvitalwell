@@ -4,10 +4,11 @@ import { ArrowRight } from "lucide-react";
 import { ImageBrowseCard, PageHero } from "@/components/ui/ImageBrowseCard";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
 import { getStartedCards } from "@/data/browse-cards";
+import { images } from "@/data/images";
 
 export const metadata: Metadata = {
   title: "Get Started",
-  description: "Check eligibility and start your VitaWellRx® weight-management program.",
+  description: "Check eligibility and start your VitaWellRx weight-management program.",
 };
 
 export default function GetStartedPage() {
@@ -17,8 +18,8 @@ export default function GetStartedPage() {
       <PageHero
         eyebrow="Start here"
         title="Check eligibility and choose your program."
-        description="VitaWellRx® connects you with independent US-licensed providers. Complete checkout first, then finish your secure medical intake for review."
-        image="/images/cards/get-started.webp"
+        description="VitaWellRx connects you with independent US-licensed providers. Complete checkout first, then finish your secure medical intake for review."
+        image={images.hero}
         imageAlt="Start your VitaWellRx eligibility check"
       />
       <section className="container-page pb-20 pt-10">

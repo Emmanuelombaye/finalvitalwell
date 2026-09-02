@@ -3,11 +3,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BrowseSectionBlock, PageHero } from "@/components/ui/ImageBrowseCard";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
+import { images } from "@/data/images";
 import { learnSections } from "@/data/browse-cards";
 
 export const metadata: Metadata = {
   title: "Learn",
-  description: "Guides on GLP-1 programs, safety, compounded medications, and the VitaWellRx® care experience.",
+  description: "Guides on weight-management programs, safety, compounded medications, and the VitaWellRx care experience.",
 };
 
 export default function LearnPage() {
@@ -17,9 +18,9 @@ export default function LearnPage() {
       <PageHero
         eyebrow="Learn"
         title="Understand your care before you begin."
-        description="Educational guides on GLP-1 programs, safety, pharmacy fulfillment, and how VitaWellRx® telehealth works."
-        image="/images/cards/learn-glp1.webp"
-        imageAlt="GLP-1 weight management education"
+        description="Educational guides on weight-management programs, safety, pharmacy fulfillment, and how VitaWellRx telehealth works."
+        image={images.category}
+        imageAlt="VitaWellRx weight management education"
       />
       <section className="container-page pb-20 pt-10">
         <div className="browse-page-intro">

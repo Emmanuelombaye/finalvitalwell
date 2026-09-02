@@ -4,56 +4,55 @@ import { ArrowRight } from "lucide-react";
 import { HomeStepCard } from "@/components/home/HomeStepCard";
 import { ImageBrowseCard, PageHero } from "@/components/ui/ImageBrowseCard";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
+import { images } from "@/data/images";
 import { homeStepCards } from "@/data/home";
 
 export const metadata: Metadata = {
-  title: "How GLP-1 Programs Work",
-  description: "Learn how GLP-1 and dual-pathway weight-management programs work through VitaWellRx® telehealth.",
+  title: "How Programs Work",
+  description: "Learn how weight-management programs work through VitaWellRx telehealth.",
 };
 
 const TOPICS = [
   {
-    title: "What is a GLP-1 program?",
+    title: "What is a weight-management program?",
     description:
-      "GLP-1 receptor agonists act on pathways involved in appetite signaling and gastric emptying. VitaWellRx® programs are clinician-guided — a licensed provider decides whether treatment is appropriate after reviewing your intake.",
-    image: "/images/cards/learn-glp1.webp",
+      "VitaWellRx programs are clinician-guided. A licensed provider decides whether treatment is appropriate after reviewing your intake.",
+    image: images.wellness,
     href: "/compounded-medications",
-    badge: "Education",
   },
   {
     title: "Semaglutide vs Tirzepatide",
     description:
-      "Semaglutide targets one incretin pathway. Tirzepatide acts on two. Which program may suit you is a clinical judgment made by your reviewing provider, not a purchase decision.",
-    image: "/images/cards/shop-weight.webp",
+      "Two clinician-guided options with different monthly pricing. Which program may suit you is decided by your reviewing provider.",
+    image: images.vials.semaglutide,
     href: "/treatments/weight-management",
-    badge: "Compare",
+    imageFit: "contain" as const,
   },
   {
-    title: "Safety & side effects",
+    title: "Safety and side effects",
     description:
-      "Common side effects include nausea and gastrointestinal discomfort, especially early in a program. Serious risks exist — disclose your full health history during intake.",
-    image: "/images/cards/learn-safety.webp",
+      "Common side effects include nausea and gastrointestinal discomfort, especially early in a program. Disclose your full health history during intake.",
+    image: images.category,
     href: "/safety",
-    badge: "Safety",
   },
 ];
 
-export default function Glp1LearnPage() {
+export default function ProgramsLearnPage() {
   return (
     <>
       <Breadcrumbs
         items={[
           { href: "/", label: "Home" },
           { href: "/learn", label: "Learn" },
-          { label: "GLP-1 Programs" },
+          { label: "Programs" },
         ]}
       />
       <PageHero
         eyebrow="Education"
-        title="How GLP-1 weight-management programs work."
-        description="General educational information about GLP-1 and dual-pathway programs offered through VitaWellRx® telehealth."
-        image="/images/cards/learn-glp1.webp"
-        imageAlt="GLP-1 program education"
+        title="How weight-management programs work."
+        description="General educational information about Semaglutide and Tirzepatide programs offered through VitaWellRx telehealth."
+        image={images.category}
+        imageAlt="Weight management program education"
       />
       <section className="container-page pb-20 pt-10">
         <div className="browse-section">
@@ -70,7 +69,7 @@ export default function Glp1LearnPage() {
 
         <div className="browse-section mt-14">
           <div className="browse-section__header">
-            <h2 className="browse-section__title">Your path with VitaWellRx®</h2>
+            <h2 className="browse-section__title">Your path with VitaWellRx</h2>
           </div>
           <ol className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {homeStepCards.map((card) => (

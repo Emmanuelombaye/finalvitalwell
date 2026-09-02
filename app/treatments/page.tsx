@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/product/ProductCard";
 import { BrowseSectionBlock, PageHero } from "@/components/ui/ImageBrowseCard";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
+import { images } from "@/data/images";
 import { shopSections } from "@/data/browse-cards";
 import { products } from "@/lib/products";
 
@@ -19,7 +20,7 @@ export default function TreatmentsPage() {
         eyebrow="Treatments"
         title="Clinician-guided weight-management programs."
         description="Two programs, each with one all-inclusive monthly price. Purchase first, then complete the secure medical intake for licensed-provider review."
-        image="/images/hero.webp"
+        image={images.hero}
         imageAlt="VitaWellRx weight management care"
       />
       <section className="container-page pb-20 pt-10">

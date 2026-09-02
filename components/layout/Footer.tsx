@@ -19,7 +19,7 @@ const careLinks = [
 
 const learnLinks = [
   { href: "/learn", label: "Learn center" },
-  { href: "/learn/glp-1", label: "GLP-1 programs" },
+  { href: "/learn/glp-1", label: "Program guide" },
   { href: "/care", label: "Your care" },
   { href: "/how-it-works", label: "How it works" },
   { href: "/faq", label: "FAQ" },

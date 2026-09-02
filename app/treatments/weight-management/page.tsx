@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
+import { MediaImage } from "@/components/ui/MediaImage";
 import { products } from "@/lib/products";
 
 export const metadata: Metadata = { title: "Weight Management" };
@@ -22,16 +22,14 @@ export default function WeightManagementPage() {
         <p className="mt-4 max-w-2xl text-muted-foreground">
           Semaglutide and Tirzepatide, each with one all-inclusive monthly price.
         </p>
-        <div className="relative mt-8 aspect-[16/7] w-full overflow-hidden rounded-3xl shadow-[var(--shadow-lift)]">
-          <Image
-            src="/images/category-weight.webp"
-            alt="Active person stretching outdoors at sunrise"
-            fill
-            loading="lazy"
-            sizes="(max-width: 768px) 100vw, 78rem"
-            className="object-cover object-center"
-          />
-        </div>
+        <MediaImage
+          src="/images/category-weight.webp"
+          alt="Active person stretching outdoors at sunrise"
+          aspect="16 / 7"
+          fit="cover"
+          sizes="(max-width: 768px) 100vw, 78rem"
+          className="mt-8 overflow-hidden rounded-3xl shadow-[var(--shadow-lift)]"
+        />
         <div className="mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
           {products.map((product) => (
             <ProductCard key={product.slug} product={product} />
