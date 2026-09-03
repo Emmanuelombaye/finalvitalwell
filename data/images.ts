@@ -1,6 +1,7 @@
 export const images = {
   hero: "/images/hero.webp",
   category: "/images/category-weight.webp",
+  weightManagement: "/images/weight-management-hero.webp",
   wellness: "/images/cards/wellness.webp",
   consult: "/images/cards/consult.webp",
   delivery: "/images/cards/delivery.webp",

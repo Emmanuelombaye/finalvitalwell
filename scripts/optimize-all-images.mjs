@@ -5,7 +5,7 @@ import sharp from "sharp";
 const publicDir = path.join(process.cwd(), "public");
 
 const RULES = [
-  { match: /hero\.webp$|category-weight\.webp$/, width: 1200, quality: 76 },
+  { match: /hero\.webp$|category-weight\.webp$|weight-management-hero\.webp$/, width: 1200, quality: 76 },
   { match: /cards\//, width: 640, quality: 78 },
   { match: /vials\//, width: 560, quality: 80 },
   { match: /trust\//, width: 112, quality: 82 },

@@ -44,6 +44,7 @@ const jobs = [
   // Site hero + category
   ["hero.jpg", "hero.webp", 1200, 900],
   ["category-weight.jpg", "category-weight.webp", 1200, 900],
+  ["weight-management-hero.jpg", "weight-management-hero.webp", 1200, 900],
   // Browse tile cards (4:5)
   ["cardsconsult.jpg", "cards/consult.webp", 640, 800],
   ["cardsdelivery.jpg", "cards/delivery.webp", 640, 800],
@@ -67,7 +68,7 @@ async function run() {
     const output = path.join(publicDir, out);
     try {
       await fs.access(input);
-      if (out === "hero.webp" || out === "category-weight.webp") {
+      if (out === "hero.webp" || out === "category-weight.webp" || out === "weight-management-hero.webp") {
         await exportWidth(input, output, w);
       } else {
         await exportContain(input, output, w, h, bg);

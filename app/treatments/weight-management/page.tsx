@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Breadcrumbs, DemoNotice } from "@/components/ui/DemoNotice";
 import { MediaImage } from "@/components/ui/MediaImage";
+import { images } from "@/data/images";
 import { products } from "@/lib/products";
 
 export const metadata: Metadata = { title: "Weight Management" };
@@ -23,8 +24,8 @@ export default function WeightManagementPage() {
           Semaglutide and Tirzepatide, each with one all-inclusive monthly price.
         </p>
         <MediaImage
-          src="/images/category-weight.webp"
-          alt="Smiling couple jogging together on a sunlit tree-lined path"
+          src={images.weightManagement}
+          alt="Confident woman walking along a sunlit coastal boardwalk"
           aspect="16 / 7"
           fit="cover"
           sizes="(max-width: 768px) 100vw, 78rem"
