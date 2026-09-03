@@ -9,14 +9,16 @@ export function HomeStepCard({ card }: { card: HomeStepCard }) {
       <div className="home-step-card__media-wrap">
         <MediaImage
           src={card.image}
-          alt={card.title}
+          alt=""
           aspect="16 / 10"
           fit={fit}
           objectPosition="center"
           sizes="(max-width: 768px) 100vw, 25vw"
           className={fit === "contain" ? "home-step-card__media home-step-card__media--contain" : "home-step-card__media"}
         />
-        <span className="home-step-card__badge">{card.step}</span>
+        <span className="home-step-card__badge" aria-hidden="true">
+          {card.step}
+        </span>
       </div>
       <div className="home-step-card__body">
         <h3 className="home-step-card__title">{card.title}</h3>

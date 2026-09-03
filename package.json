@@ -6,12 +6,12 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "build": "node init && next build",
+    "start": "node init && next start",
     "lint": "next lint",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "build-hiw-images": "node scripts/build-hiw-images.mjs",
+    "build-hiw-images": "node init && node scripts/build-hiw-images.mjs",
     "import-user-images": "node scripts/import-user-images.mjs",
     "optimize-all-images": "node scripts/optimize-all-images.mjs"
   },
