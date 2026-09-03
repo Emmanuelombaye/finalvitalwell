@@ -60,7 +60,6 @@ export const howItWorksSteps: HomeStepCard[] = [
     title: "Fulfilment and support",
     description: "If approved, standard shipping is included. Follow-up stays inside your account.",
     image: howItWorksImages.steps.delivery,
-    imageFit: "contain",
   },
 ];
 
@@ -70,13 +69,11 @@ export const howItWorksCtaCards: BrowseCard[] = [
     description: "Start with a short review of programs and state availability.",
     image: howItWorksImages.cta.eligibility,
     href: "/get-started",
-    imageFit: "contain",
   },
   {
     title: "Browse programs",
     description: "Compare Semaglutide and Tirzepatide with transparent pricing.",
     image: howItWorksImages.cta.programs,
     href: "/shop",
-    imageFit: "contain",
   },
 ];

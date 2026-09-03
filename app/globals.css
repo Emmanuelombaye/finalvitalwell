@@ -602,7 +602,7 @@
   .browse-card__media {
     flex-shrink: 0;
     overflow: hidden;
-    background: #0b132b;
+    background: #e8eef5;
   }
 
   .browse-card--wide .browse-card__media {

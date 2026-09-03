@@ -6,6 +6,17 @@ export const images = {
   consult: "/images/cards/consult.webp",
   delivery: "/images/cards/delivery.webp",
   providerNetwork: "/images/cards/provider-network.webp",
+  sectionCards: {
+    checkEligibility: "/images/cards/shop-check-eligibility.webp",
+    patientPortal: "/images/cards/shop-patient-portal.webp",
+    pricing: "/images/cards/shop-pricing.webp",
+    howItWorks: "/images/cards/learn-how-it-works.webp",
+    shipping: "/images/cards/learn-shipping.webp",
+    providerNetwork: "/images/cards/learn-provider-network.webp",
+    howProgramsWork: "/images/cards/learn-how-programs-work.webp",
+    compoundedMeds: "/images/cards/learn-compounded-meds.webp",
+    safetyEligibility: "/images/cards/learn-safety-eligibility.webp",
+  },
   vials: {
     semaglutide: "/images/vials/semaglutide.webp",
     tirzepatide: "/images/vials/tirzepatide.webp",

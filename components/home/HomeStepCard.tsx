@@ -12,6 +12,7 @@ export function HomeStepCard({ card }: { card: HomeStepCard }) {
           alt={card.title}
           aspect="16 / 10"
           fit={fit}
+          objectPosition={fit === "cover" ? "50% 30%" : "center"}
           sizes="(max-width: 768px) 100vw, 25vw"
           className={fit === "contain" ? "home-step-card__media home-step-card__media--contain" : "home-step-card__media"}
         />
