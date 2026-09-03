@@ -21,6 +21,9 @@ export default function HowItWorksPage() {
             <p className="hiw-hero__description">
               Purchase first, then complete intake. A licensed clinician decides whether treatment is appropriate.
             </p>
+            <Link href="/get-started" className="hiw-hero__cta">
+              Get started <ArrowRight className="size-4" />
+            </Link>
           </div>
           <div className="hiw-hero__visual">
             <MediaImage
@@ -36,52 +39,56 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="container-page pb-20 pt-10">
-        <div className="hiw-steps-intro">
-          <h2 className="hiw-steps-intro__title">Six clear steps</h2>
-          <p className="hiw-steps-intro__text">
-            From choosing a program to discreet fulfillment — each step is designed to stay simple and transparent.
-          </p>
+      <section className="hiw-board">
+        <div className="container-page">
+          <div className="hiw-steps-intro">
+            <p className="hiw-steps-intro__eyebrow">The process</p>
+            <h2 className="hiw-steps-intro__title">Six clear steps</h2>
+            <p className="hiw-steps-intro__text">
+              From choosing a program to discreet fulfillment — each step stays simple, transparent, and easy to follow.
+            </p>
+          </div>
+
+          <ol className="hiw-steps">
+            {howItWorksSteps.map((card) => (
+              <HowItWorksStepCard key={card.step} card={card} />
+            ))}
+          </ol>
         </div>
+      </section>
 
-        <ol className="hiw-steps">
-          {howItWorksSteps.map((card) => (
-            <HowItWorksStepCard key={card.step} card={card} />
-          ))}
-        </ol>
-
+      <section className="container-page pb-20 pt-4">
         <div className="hiw-cta">
           <div className="hiw-cta__header">
+            <p className="hiw-cta__eyebrow">Next</p>
             <h2 className="hiw-cta__title">Ready to begin?</h2>
             <p className="hiw-cta__description">Choose a program or check whether we serve your state.</p>
           </div>
           <div className="hiw-cta__grid">
             {howItWorksCtaCards.map((card) => (
               <Link key={card.href} href={card.href} className="hiw-cta-card group">
-                <MediaImage
-                  src={card.image}
-                  alt={card.title}
-                  aspect="16 / 10"
-                  fit="contain"
-                  objectPosition="center"
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="hiw-cta-card__media"
-                />
+                <div className="hiw-cta-card__media-wrap">
+                  <MediaImage
+                    src={card.image}
+                    alt={card.title}
+                    aspect="16 / 10"
+                    fit="contain"
+                    objectPosition="center"
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="hiw-cta-card__media"
+                  />
+                </div>
                 <div className="hiw-cta-card__body">
                   <h3 className="hiw-cta-card__title">{card.title}</h3>
                   <p className="hiw-cta-card__text">{card.description}</p>
                   <span className="hiw-cta-card__link">
-                    Learn more <ArrowRight className="size-4" />
+                    Continue <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </span>
                 </div>
               </Link>
             ))}
           </div>
         </div>
-
-        <Link href="/get-started" className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-gold">
-          Get started now <ArrowRight className="size-4" />
-        </Link>
 
         <DemoNotice className="mt-10 max-w-3xl" />
       </section>
