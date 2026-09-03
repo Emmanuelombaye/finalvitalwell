@@ -194,7 +194,7 @@ export default function HomePage() {
           >
             <MediaImage
               src="/images/category-weight.webp"
-              alt="Smiling couple jogging together on a sunlit tree-lined path"
+              alt="Man stretching on a rooftop terrace at sunrise with city skyline behind"
               aspect="16 / 7"
               fit="cover"
               sizes="(max-width: 768px) 100vw, 78rem"
