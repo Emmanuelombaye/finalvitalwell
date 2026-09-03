@@ -23,7 +23,7 @@ export const homeFeatureCards: HomeFeatureCard[] = [
     title: "Provider review on your schedule",
     description:
       "Complete your secure intake after checkout. An independent US-licensed clinician reviews your health history remotely.",
-    image: images.consult,
+    image: images.homeFeatures.licensedCare,
     href: "/how-it-works",
   },
   {
@@ -31,16 +31,15 @@ export const homeFeatureCards: HomeFeatureCard[] = [
     title: "One monthly program price",
     description:
       "Semaglutide from $149 per month and Tirzepatide from $249 per month. Consultation, support, and standard shipping included.",
-    image: images.vials.semaglutide,
+    image: images.homeFeatures.pricing,
     href: "/pricing",
-    imageFit: "contain",
   },
   {
     eyebrow: "Fulfillment",
     title: "Discreet pharmacy delivery",
     description:
       "When prescribed, medication is fulfilled through licensed US pharmacies with standard shipping included.",
-    image: images.delivery,
+    image: images.homeFeatures.fulfillment,
     href: "/shipping",
   },
   {
@@ -48,7 +47,7 @@ export const homeFeatureCards: HomeFeatureCard[] = [
     title: "Support beyond the first visit",
     description:
       "Message your care team, manage your program, and stay on track with ongoing follow-up built into every plan.",
-    image: images.wellness,
+    image: images.homeFeatures.journey,
     href: "/account",
   },
 ];

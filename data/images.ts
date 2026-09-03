@@ -17,6 +17,12 @@ export const images = {
     compoundedMeds: "/images/cards/learn-compounded-meds.webp",
     safetyEligibility: "/images/cards/learn-safety-eligibility.webp",
   },
+  homeFeatures: {
+    licensedCare: "/images/cards/home-feature-licensed-care.webp",
+    pricing: "/images/cards/home-feature-pricing.webp",
+    fulfillment: "/images/cards/home-feature-fulfillment.webp",
+    journey: "/images/cards/home-feature-journey.webp",
+  },
   vials: {
     semaglutide: "/images/vials/semaglutide.webp",
     tirzepatide: "/images/vials/tirzepatide.webp",

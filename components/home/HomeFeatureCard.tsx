@@ -13,6 +13,7 @@ export function HomeFeatureCard({ card }: { card: HomeFeatureCard }) {
         alt={card.title}
         aspect="4 / 3"
         fit={fit}
+        objectPosition={fit === "cover" ? "50% 25%" : "center"}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
         className={fit === "contain" ? "home-feature-card__media home-feature-card__media--contain" : "home-feature-card__media"}
       />
