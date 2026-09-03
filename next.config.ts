@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
-    qualities: [75, 80],
+    qualities: [65, 70, 75],
   },
   experimental: {
     optimizePackageImports: ["lucide-react"],
@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
         destination: "/treatments/weight-management/tirzepatide",
         permanent: false,
       },
-      { source: "/state-availability", destination: "/states-we-serve", permanent: false },
+      { source: "/state-availability", destination: "/states-we-serve", permanent: true },
     ];
   },
 };

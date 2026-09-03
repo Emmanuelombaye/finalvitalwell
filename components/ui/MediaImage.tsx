@@ -34,6 +34,7 @@ export function MediaImage({
         priority={priority}
         loading={priority ? undefined : loading}
         fetchPriority={fetchPriority ?? (priority ? "high" : "low")}
+        quality={70}
         sizes={sizes}
         className={fit === "contain" ? "media-frame__img media-frame__img--contain" : "media-frame__img media-frame__img--cover"}
         style={objectPosition ? { objectPosition } : undefined}
