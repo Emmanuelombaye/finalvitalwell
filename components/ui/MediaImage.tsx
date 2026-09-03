@@ -7,6 +7,7 @@ type MediaImageProps = {
   fit?: "cover" | "contain";
   priority?: boolean;
   loading?: "lazy" | "eager";
+  fetchPriority?: "high" | "low" | "auto";
   sizes?: string;
   className?: string;
 };
@@ -18,6 +19,7 @@ export function MediaImage({
   fit = "cover",
   priority = false,
   loading = "lazy",
+  fetchPriority,
   sizes = "100vw",
   className = "",
 }: MediaImageProps) {
@@ -29,6 +31,7 @@ export function MediaImage({
         fill
         priority={priority}
         loading={priority ? undefined : loading}
+        fetchPriority={fetchPriority ?? (priority ? "high" : "low")}
         sizes={sizes}
         className={fit === "contain" ? "media-frame__img media-frame__img--contain" : "media-frame__img media-frame__img--cover"}
       />

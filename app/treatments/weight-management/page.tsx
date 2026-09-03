@@ -24,7 +24,7 @@ export default function WeightManagementPage() {
         </p>
         <MediaImage
           src="/images/category-weight.webp"
-          alt="Active person stretching outdoors at sunrise"
+          alt="Smiling couple jogging together on a sunlit tree-lined path"
           aspect="16 / 7"
           fit="cover"
           sizes="(max-width: 768px) 100vw, 78rem"
