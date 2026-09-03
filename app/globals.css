@@ -417,7 +417,28 @@
     color: #8a7340;
   }
 
+  .home-steps-grid {
+    display: grid;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    .home-steps-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .home-steps-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
   .home-step-card {
+    list-style: none;
     overflow: hidden;
     border-radius: 1.25rem;
     border: 1px solid var(--color-border);
@@ -452,15 +473,20 @@
     color: #0b132b;
     font-size: 0.875rem;
     font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 6px 14px rgb(11 19 43 / 0.18);
+    pointer-events: none;
   }
 
   .home-step-card__body {
-    padding: 1.1rem 1.25rem 1.25rem;
+    padding: 1.15rem 1.25rem 1.3rem;
   }
 
   .home-step-card__title {
+    margin: 0;
     font-size: 1.05rem;
-    line-height: 1.25;
+    line-height: 1.3;
+    overflow-wrap: break-word;
   }
 
   .home-step-card__text {

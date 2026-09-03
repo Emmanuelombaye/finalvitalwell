@@ -170,7 +170,7 @@ export default function HomePage() {
             Four clear steps from choosing a program to licensed-provider review.
           </p>
         </div>
-        <ol className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <ol className="home-steps-grid mt-10">
           {homeStepCards.map((card) => (
             <HomeStepCard key={card.step} card={card} />
           ))}
