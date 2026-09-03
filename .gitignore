@@ -20,7 +20,6 @@ build
 npm-debug.log*
 
 # env
-.env
 .env*.local
 
 # typescript
@@ -31,4 +30,4 @@ npm-debug.log*
 
 # editor
 .idea
-.vscode
+config.bat
