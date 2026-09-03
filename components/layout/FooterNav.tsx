@@ -17,14 +17,14 @@ function FooterAccordionSection({ title, children, defaultOpen = false }: Footer
     <div className="hims-footer__section">
       <button
         type="button"
-        className="hims-footer__section-toggle md:hidden"
+        className="hims-footer__section-toggle"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
       >
-        {title}
-        <ChevronDown className={`size-4 transition-transform ${open ? "rotate-180" : ""}`} />
+        <span>{title}</span>
+        <ChevronDown className={`hims-footer__chevron ${open ? "is-open" : ""}`} aria-hidden />
       </button>
-      <h4 className="hims-footer__section-title hidden md:block">{title}</h4>
+      <h4 className="hims-footer__section-title">{title}</h4>
       <div className={`hims-footer__section-links ${open ? "is-open" : ""}`}>{children}</div>
     </div>
   );
@@ -53,8 +53,8 @@ type FooterNavProps = {
 
 export function FooterNav({ careLinks, learnLinks, supportLinks, legalLinks }: FooterNavProps) {
   return (
-    <div className="hims-footer__nav-grid">
-      <FooterAccordionSection title="Treatments">
+    <nav className="hims-footer__nav-grid" aria-label="Footer">
+      <FooterAccordionSection title="Treatments" defaultOpen>
         {careLinks.map((item) => (
           <FooterLink key={item.href} href={item.href}>
             {item.label}
@@ -72,7 +72,7 @@ export function FooterNav({ careLinks, learnLinks, supportLinks, legalLinks }: F
 
       <FooterAccordionSection title="Support">
         {supportLinks.map((item) => (
-          <FooterLink key={item.href} href={item.href} accent={item.accent}>
+          <FooterLink key={`${item.href}-${item.label}`} href={item.href} accent={item.accent}>
             {item.label}
           </FooterLink>
         ))}
@@ -85,6 +85,6 @@ export function FooterNav({ careLinks, learnLinks, supportLinks, legalLinks }: F
           </FooterLink>
         ))}
       </FooterAccordionSection>
-    </div>
+    </nav>
   );
 }

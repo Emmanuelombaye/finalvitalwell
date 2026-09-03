@@ -14,9 +14,15 @@ export default function Page() {
       title="Medical Disclaimer"
       lede={`Important medical and product disclaimers for the ${site.dba} website, assessments, and related services.`}
     >
+      <p>
+        The information provided through the {site.dba} website, assessments, product pages, checkout flows,
+        communications, and related services is for general informational purposes only and is not a substitute for
+        professional medical advice, diagnosis, or treatment.
+      </p>
+
       <h2>1. Informational Use Only</h2>
       <p>
-        All content on the VitaWellRx® Services—including text, graphics, images, assessments, product descriptions, and
+        All content on the {site.dba} Services—including text, graphics, images, assessments, product descriptions, and
         other materials—is provided for general informational purposes only. It is not intended to be, and should not be
         relied upon as, medical advice or a recommendation for any particular treatment, medication, or course of
         action.
@@ -24,22 +30,25 @@ export default function Page() {
 
       <h2>2. Not Medical Advice</h2>
       <p>
-        Use of the VitaWellRx® Services does not create a doctor-patient relationship with VitaWellRx®. Content on the
+        Use of the {site.dba} Services does not create a doctor-patient relationship with {site.dba}. Content on the
         Services does not constitute medical advice, diagnosis, or treatment. Always seek the advice of a qualified
         healthcare provider with any questions you may have regarding your health or a medical condition.
       </p>
 
-      <h2>3. VitaWellRx® Is Not a Pharmacy</h2>
+      <h2>3. {site.dba} Is Not a Pharmacy</h2>
       <p>
-        VitaWellRx® is not a pharmacy and does not itself practice medicine. Medical services, if available, are
-        provided by independent US-licensed providers or affiliated clinical partners.
+        {site.dba} is not a pharmacy and does not itself practice medicine. Medical services, if available, are provided
+        by independent US-licensed providers or affiliated clinical partners.
       </p>
 
       <h2>4. Provider Review Required</h2>
       <p>
         Prescription treatment, if any, is provided only after review by a US-licensed provider and only if clinically
-        appropriate. Completing an assessment, checkout, payment authorization, or account creation does not guarantee
-        that treatment will be prescribed.
+        appropriate.
+      </p>
+      <p>
+        Completing an assessment, checkout, payment authorization, or account creation does not guarantee that treatment
+        will be prescribed.
       </p>
 
       <h2>5. No Emergency Services</h2>
@@ -50,8 +59,8 @@ export default function Page() {
 
       <h2>6. No Guaranteed Results</h2>
       <p>
-        VitaWellRx® does not guarantee specific outcomes, results, eligibility, prescriptions, weight loss, or treatment
-        availability.
+        {site.dba} does not guarantee specific outcomes, results, eligibility, prescriptions, weight loss, hair
+        regrowth, performance improvement, energy improvement, anti-aging benefits, or treatment availability.
       </p>
 
       <h2>7. Treatment Availability</h2>
@@ -89,9 +98,8 @@ export default function Page() {
 
       <h2>12. Third-Party Providers and Pharmacies</h2>
       <p>
-        VitaWellRx® may coordinate access to independent providers, pharmacies, payment processors, fulfillment
-        partners, or other service providers. These third parties may have their own policies, notices, and
-        responsibilities.
+        {site.dba} may coordinate access to independent providers, pharmacies, payment processors, fulfillment partners,
+        or other service providers. These third parties may have their own policies, notices, and responsibilities.
       </p>
 
       <h2>13. When to Seek Medical Care</h2>

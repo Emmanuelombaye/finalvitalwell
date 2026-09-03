@@ -34,6 +34,7 @@ const supportLinks = [
   { href: "/account", label: "Patient portal" },
   { href: "/contact", label: "Contact" },
   { href: "/provider-network", label: "Provider network" },
+  { href: `tel:+1${contact.phone}`, label: contact.phoneDisplay, accent: true },
   { href: `mailto:${contact.email}`, label: contact.email, accent: true },
 ];
 

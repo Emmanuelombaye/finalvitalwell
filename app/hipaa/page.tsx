@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage } from "@/components/ui/LegalPage";
-import { contact } from "@/data/site";
+import { contact, site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "HIPAA Notice of Privacy Practices",
@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <LegalPage
       title="HIPAA Notice of Privacy Practices"
-      lede="How medical information about you may be used and disclosed through VitaWellRx®, and how you can get access to this information."
+      lede="How medical information about you may be used and disclosed, and how you can get access to this information. Please review it carefully."
     >
       <h2>Uses and Disclosures</h2>
       <p>
@@ -40,6 +40,13 @@ export default function Page() {
       </p>
       <p>
         Contact: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        <br />
+        {site.legalName} d/b/a {site.dba}
+      </p>
+
+      <p>
+        This Notice is provided for informational purposes and should be reviewed by legal counsel before final
+        publication.
       </p>
 
       <p className="pt-4">

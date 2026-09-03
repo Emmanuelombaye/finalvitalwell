@@ -16,4 +16,4 @@ export const footerLegalLinks = legalLinks.filter(
   (link) => !["/provider-network", "/supplement-terms"].includes(link.href),
 );
 
-export const legalLastUpdated = "August 16, 2026";
+export const legalLastUpdated = "August 15, 2026";

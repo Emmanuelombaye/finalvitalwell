@@ -96,9 +96,10 @@ export default function HomePage() {
             <div className="home-hero__image-shell">
               <MediaImage
                 src="/images/hero.webp"
-                alt="Confident woman preparing a healthy breakfast in a bright modern kitchen"
+                alt="Woman checking her care program on a smartphone by a bright window"
                 aspect="16 / 11"
-                fit="cover"
+                fit="contain"
+                objectPosition="center"
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="home-hero__image-wrap"
