@@ -195,10 +195,11 @@ export default function HomePage() {
             <MediaImage
               src="/images/category-weight.webp"
               alt="Man stretching on a rooftop terrace at sunrise with city skyline behind"
-              aspect="16 / 7"
+              aspect="2 / 1"
               fit="cover"
+              objectPosition="42% 22%"
               sizes="(max-width: 768px) 100vw, 78rem"
-              className="category-banner__media transition-transform duration-500 group-hover:scale-[1.03]"
+              className="category-banner__media transition-transform duration-500 group-hover:scale-[1.02]"
             />
             <div className="p-6">
               <p className="text-xs font-semibold tracking-[0.18em] text-gold uppercase">Weight Management</p>

@@ -5,6 +5,7 @@ type MediaImageProps = {
   alt: string;
   aspect?: string;
   fit?: "cover" | "contain";
+  objectPosition?: string;
   priority?: boolean;
   loading?: "lazy" | "eager";
   fetchPriority?: "high" | "low" | "auto";
@@ -17,6 +18,7 @@ export function MediaImage({
   alt,
   aspect = "4 / 3",
   fit = "cover",
+  objectPosition,
   priority = false,
   loading = "lazy",
   fetchPriority,
@@ -34,6 +36,7 @@ export function MediaImage({
         fetchPriority={fetchPriority ?? (priority ? "high" : "low")}
         sizes={sizes}
         className={fit === "contain" ? "media-frame__img media-frame__img--contain" : "media-frame__img media-frame__img--cover"}
+        style={objectPosition ? { objectPosition } : undefined}
       />
     </div>
   );
