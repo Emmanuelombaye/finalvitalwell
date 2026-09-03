@@ -15,7 +15,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="One clear monthly price."
         description="No surprise consultation fees. No hidden membership charges. No standard shipping charges."
-        image={images.hero}
+        image={images.pages.pricing}
         imageAlt="VitaWellRx weight management care"
       />
       <section className="container-page pb-20 pt-10">

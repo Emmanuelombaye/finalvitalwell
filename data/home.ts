@@ -25,6 +25,7 @@ export const homeFeatureCards: HomeFeatureCard[] = [
       "Complete your secure intake after checkout. An independent US-licensed clinician reviews your health history remotely.",
     image: images.homeFeatures.licensedCare,
     href: "/how-it-works",
+    imageFit: "contain",
   },
   {
     eyebrow: "Clear pricing",
@@ -33,6 +34,7 @@ export const homeFeatureCards: HomeFeatureCard[] = [
       "Semaglutide from $149 per month and Tirzepatide from $249 per month. Consultation, support, and standard shipping included.",
     image: images.homeFeatures.pricing,
     href: "/pricing",
+    imageFit: "contain",
   },
   {
     eyebrow: "Fulfillment",
@@ -41,6 +43,7 @@ export const homeFeatureCards: HomeFeatureCard[] = [
       "When prescribed, medication is fulfilled through licensed US pharmacies with standard shipping included.",
     image: images.homeFeatures.fulfillment,
     href: "/shipping",
+    imageFit: "contain",
   },
   {
     eyebrow: "Your journey",
@@ -49,6 +52,7 @@ export const homeFeatureCards: HomeFeatureCard[] = [
       "Message your care team, manage your program, and stay on track with ongoing follow-up built into every plan.",
     image: images.homeFeatures.journey,
     href: "/account",
+    imageFit: "contain",
   },
 ];
 
@@ -65,18 +69,21 @@ export const homeStepCards: HomeStepCard[] = [
     title: "Complete checkout",
     description: "Purchase your VitaWellRx program securely online in minutes.",
     image: images.homeSteps.checkout,
+    imageFit: "contain",
   },
   {
     step: 3,
     title: "Finish your intake",
     description: "Submit your secure health questionnaire and identification after checkout.",
-    image: images.homeFeatures.licensedCare,
+    image: images.homeSteps.intake,
+    imageFit: "contain",
   },
   {
     step: 4,
     title: "Provider review",
     description: "A licensed clinician determines whether treatment is medically appropriate for you.",
-    image: images.delivery,
+    image: images.homeSteps.review,
+    imageFit: "contain",
   },
 ];
 

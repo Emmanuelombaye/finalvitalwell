@@ -58,8 +58,15 @@
     width: 100%;
     max-width: 78rem;
     /* Keep horizontal inset even when paired with classes that set padding-block */
-    padding-inline: max(1.5rem, env(safe-area-inset-left, 0px))
-      max(1.5rem, env(safe-area-inset-right, 0px));
+    padding-inline: max(1.25rem, env(safe-area-inset-left, 0px))
+      max(1.25rem, env(safe-area-inset-right, 0px));
+  }
+
+  @media (min-width: 390px) {
+    .container-page {
+      padding-inline: max(1.5rem, env(safe-area-inset-left, 0px))
+        max(1.5rem, env(safe-area-inset-right, 0px));
+    }
   }
 
   @media (min-width: 768px) {
@@ -67,6 +74,36 @@
       padding-inline: max(1.75rem, env(safe-area-inset-left, 0px))
         max(1.75rem, env(safe-area-inset-right, 0px));
     }
+  }
+
+  .site-header__backdrop {
+    position: fixed;
+    inset: 0;
+    top: 4.25rem;
+    z-index: 40;
+    border: 0;
+    background: rgb(11 19 43 / 0.35);
+    cursor: pointer;
+  }
+
+  .site-header__mobile {
+    position: relative;
+    z-index: 45;
+    border-top: 1px solid #e2e8f0;
+    background: #fff;
+    max-height: min(75vh, 32rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 18px 40px -24px rgb(11 19 43 / 0.45);
+  }
+
+  .site-header__mobile-inner {
+    padding-block: 0.35rem 1.15rem;
+  }
+
+  .site-header__menu-btn {
+    position: relative;
+    z-index: 46;
   }
 
   .surface-sand {
@@ -723,6 +760,7 @@
 
   .category-banner__media {
     border-radius: 1rem;
+    background: linear-gradient(to bottom, #f8fafc, #ffffff);
   }
 
   .product-category {
@@ -789,7 +827,7 @@
   }
 
   .hims-footer__cta {
-    padding: 3.5rem 0 0;
+    padding-block: 3.5rem 0;
     background: #fff;
     border-bottom: 1px solid #ece8e2;
   }
@@ -847,7 +885,7 @@
   }
 
   .hims-footer__main {
-    padding: 2.75rem 0 2.25rem;
+    padding-block: 2.75rem 2.25rem;
   }
 
   .hims-footer__top {
@@ -954,7 +992,7 @@
   }
 
   .hims-footer__bottom {
-    padding: 1.75rem 0 2.5rem;
+    padding-block: 1.75rem 2.5rem;
     background: #f0ede8;
     border-top: 1px solid #e8e4de;
   }
@@ -1235,7 +1273,7 @@
   }
 
   .hiw-board {
-    padding: 2.5rem 0 1rem;
+    padding-block: 2.5rem 1rem;
     background:
       linear-gradient(180deg, #f7f5f2 0%, #ffffff 42%, #ffffff 100%);
   }
@@ -1476,7 +1514,7 @@
     }
 
     .hiw-board {
-      padding: 3rem 0 1.25rem;
+      padding-block: 3rem 1.25rem;
     }
   }
 

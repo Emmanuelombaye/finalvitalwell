@@ -19,6 +19,7 @@ const TOPICS = [
       "VitaWellRx programs are clinician-guided. A licensed provider decides whether treatment is appropriate after reviewing your intake.",
     image: images.wellness,
     href: "/compounded-medications",
+    imageFit: "contain" as const,
   },
   {
     title: "Semaglutide vs Tirzepatide",
@@ -32,8 +33,9 @@ const TOPICS = [
     title: "Safety and side effects",
     description:
       "Common side effects include nausea and gastrointestinal discomfort, especially early in a program. Disclose your full health history during intake.",
-    image: images.category,
+    image: images.sectionCards.learnGlp1Safety,
     href: "/safety",
+    imageFit: "contain" as const,
   },
 ];
 
@@ -51,7 +53,7 @@ export default function ProgramsLearnPage() {
         eyebrow="Education"
         title="How weight-management programs work."
         description="General educational information about Semaglutide and Tirzepatide programs offered through VitaWellRx telehealth."
-        image={images.category}
+        image={images.pages.learnGlp1}
         imageAlt="Weight management program education"
       />
       <section className="container-page pb-20 pt-10">

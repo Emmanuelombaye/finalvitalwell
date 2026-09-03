@@ -19,7 +19,7 @@ export default function LearnPage() {
         eyebrow="Learn"
         title="Understand your care before you begin."
         description="Educational guides on weight-management programs, safety, pharmacy fulfillment, and how VitaWellRx telehealth works."
-        image={images.category}
+        image={images.pages.learn}
         imageAlt="VitaWellRx weight management education"
       />
       <section className="container-page pb-20 pt-10">

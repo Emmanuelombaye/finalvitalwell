@@ -4,7 +4,7 @@ import { MediaImage } from "@/components/ui/MediaImage";
 import type { HomeFeatureCard } from "@/data/home";
 
 export function HomeFeatureCard({ card }: { card: HomeFeatureCard }) {
-  const fit = card.imageFit ?? "cover";
+  const fit = card.imageFit ?? "contain";
 
   return (
     <Link href={card.href} className="home-feature-card group">
@@ -13,7 +13,7 @@ export function HomeFeatureCard({ card }: { card: HomeFeatureCard }) {
         alt={card.title}
         aspect="4 / 3"
         fit={fit}
-        objectPosition={fit === "cover" ? "50% 25%" : "center"}
+        objectPosition="center"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
         className={fit === "contain" ? "home-feature-card__media home-feature-card__media--contain" : "home-feature-card__media"}
       />

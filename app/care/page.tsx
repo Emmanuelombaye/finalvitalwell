@@ -19,7 +19,7 @@ export default function CarePage() {
         eyebrow="Your care"
         title="Support at every step of your program."
         description="From intake to follow-up, VitaWellRx keeps your care experience in one secure online account."
-        image={images.consult}
+        image={images.pages.care}
         imageAlt="VitaWellRx patient care support"
       />
       <section className="container-page pb-20 pt-10">

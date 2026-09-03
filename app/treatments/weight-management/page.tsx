@@ -27,10 +27,10 @@ export default function WeightManagementPage() {
           src={images.weightManagement}
           alt="Confident woman walking along a sunlit coastal boardwalk"
           aspect="16 / 9"
-          fit="cover"
-          objectPosition="center top"
+          fit="contain"
+          objectPosition="center"
           sizes="(max-width: 768px) 100vw, 78rem"
-          className="mt-8 overflow-hidden rounded-3xl shadow-[var(--shadow-lift)]"
+          className="mt-8 overflow-hidden rounded-3xl bg-gradient-to-b from-slate-50 to-white shadow-[var(--shadow-lift)]"
         />
         <div className="mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
           {products.map((product) => (

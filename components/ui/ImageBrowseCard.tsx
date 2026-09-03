@@ -15,7 +15,7 @@ const ASPECT: Record<string, string> = {
 };
 
 export function ImageBrowseCard({ card, variant = "tile" }: ImageBrowseCardProps) {
-  const fit = card.imageFit ?? "cover";
+  const fit = card.imageFit ?? "contain";
 
   return (
     <Link href={card.href} className={`browse-card browse-card--${variant} group`}>
@@ -24,7 +24,7 @@ export function ImageBrowseCard({ card, variant = "tile" }: ImageBrowseCardProps
         alt={card.title}
         aspect={ASPECT[variant]}
         fit={fit}
-        objectPosition={fit === "cover" ? "center top" : "center"}
+        objectPosition="center"
         sizes={
           variant === "wide"
             ? "(max-width: 768px) 100vw, 50vw"
@@ -76,7 +76,7 @@ type PageHeroProps = {
   imageFit?: "cover" | "contain";
 };
 
-export function PageHero({ eyebrow, title, description, image, imageAlt, priority = false, imageFit = "cover" }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, image, imageAlt, priority = false, imageFit = "contain" }: PageHeroProps) {
   return (
     <section className="page-hero">
       <div className="container-page page-hero__grid">
@@ -92,6 +92,7 @@ export function PageHero({ eyebrow, title, description, image, imageAlt, priorit
             aspect="16 / 11"
             fit={imageFit}
             priority={priority}
+            objectPosition="center"
             sizes="(max-width: 1024px) 100vw, 45vw"
             className={imageFit === "contain" ? "page-hero__image-wrap page-hero__image-wrap--contain" : "page-hero__image-wrap"}
           />

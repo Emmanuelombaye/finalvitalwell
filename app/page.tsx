@@ -197,8 +197,8 @@ export default function HomePage() {
               src="/images/category-weight.webp"
               alt="Man stretching on a rooftop terrace at sunrise with city skyline behind"
               aspect="2 / 1"
-              fit="cover"
-              objectPosition="42% 22%"
+              fit="contain"
+              objectPosition="center"
               sizes="(max-width: 768px) 100vw, 78rem"
               className="category-banner__media transition-transform duration-500 group-hover:scale-[1.02]"
             />

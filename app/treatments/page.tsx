@@ -20,7 +20,7 @@ export default function TreatmentsPage() {
         eyebrow="Treatments"
         title="Clinician-guided weight-management programs."
         description="Two programs, each with one all-inclusive monthly price. Purchase first, then complete the secure medical intake for licensed-provider review."
-        image={images.hero}
+        image={images.pages.treatments}
         imageAlt="VitaWellRx weight management care"
       />
       <section className="container-page pb-20 pt-10">

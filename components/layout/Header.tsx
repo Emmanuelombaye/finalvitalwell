@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, ShoppingBag, X } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { useCart } from "@/components/cart/CartProvider";
@@ -16,10 +17,51 @@ const NAV = [
 
 export function Header() {
   const { count, openCart } = useCart();
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const [mobileTreatmentsOpen, setMobileTreatmentsOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuId = useId();
+
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileTreatmentsOpen(false);
+  };
+
+  useEffect(() => {
+    closeMobile();
+    setTreatmentsOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMobile();
+    };
+
+    const onPointer = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (target && headerRef.current && !headerRef.current.contains(target)) {
+        closeMobile();
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("touchstart", onPointer);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("touchstart", onPointer);
+    };
+  }, [mobileOpen]);
 
   const openTreatments = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -31,7 +73,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-[0_2px_10px_rgba(0,0,0,0.05)] backdrop-blur">
+    <header ref={headerRef} className="site-header sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-[0_2px_10px_rgba(0,0,0,0.05)] backdrop-blur">
       <div className="container-page flex min-h-16 items-center justify-between gap-6 py-2">
         <Logo />
 
@@ -91,54 +133,75 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-lg bg-black/5 md:hidden"
+            className="site-header__menu-btn inline-flex size-11 items-center justify-center rounded-lg bg-black/5 md:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMobileOpen((open) => !open)}
+            aria-expanded={mobileOpen}
+            aria-controls={menuId}
+            onClick={() =>
+              setMobileOpen((open) => {
+                if (open) setMobileTreatmentsOpen(false);
+                return !open;
+              })
+            }
           >
-            {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            {mobileOpen ? <X className="size-5" strokeWidth={2.25} /> : <Menu className="size-5" strokeWidth={2.25} />}
           </button>
         </div>
       </div>
 
       {mobileOpen ? (
-        <nav className="border-t border-slate-200 bg-white px-5 py-3 md:hidden">
+        <>
           <button
             type="button"
-            className="flex w-full items-center justify-between border-b border-slate-200 py-3 text-left font-bold"
-            aria-expanded={mobileTreatmentsOpen}
-            onClick={() => setMobileTreatmentsOpen((open) => !open)}
-          >
-            Treatments
-            <ChevronDown className={`size-4 transition-transform ${mobileTreatmentsOpen ? "rotate-180" : ""}`} />
-          </button>
-          {mobileTreatmentsOpen ? (
-            <div className="border-b border-slate-200 pb-2">
-              {treatmentNavLinks.map((item) => (
+            className="site-header__backdrop md:hidden"
+            aria-label="Close menu"
+            onClick={closeMobile}
+          />
+          <nav id={menuId} className="site-header__mobile md:hidden" aria-label="Mobile">
+            <div className="container-page site-header__mobile-inner">
+              <button
+                type="button"
+                className="flex w-full items-center justify-between border-b border-slate-200 py-3.5 text-left font-bold"
+                aria-expanded={mobileTreatmentsOpen}
+                onClick={() => setMobileTreatmentsOpen((open) => !open)}
+              >
+                Treatments
+                <ChevronDown className={`size-4 transition-transform ${mobileTreatmentsOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileTreatmentsOpen ? (
+                <div className="border-b border-slate-200 pb-2">
+                  {treatmentNavLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block py-3 pl-3 text-sm text-slate-900"
+                      onClick={closeMobile}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+              {NAV.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block py-2.5 pl-3 text-sm text-slate-900"
-                  onClick={() => setMobileOpen(false)}
+                  className="block border-b border-slate-200 py-3.5 font-bold"
+                  onClick={closeMobile}
                 >
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href="/get-started"
+                className="mt-4 block rounded-full bg-navy py-3.5 text-center font-bold text-white"
+                onClick={closeMobile}
+              >
+                Get Started →
+              </Link>
             </div>
-          ) : null}
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block border-b border-slate-200 py-3 font-bold"
-              onClick={() => setMobileOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link href="/get-started" className="mt-3 block rounded-full bg-navy py-3 text-center font-bold text-white" onClick={() => setMobileOpen(false)}>
-            Get Started →
-          </Link>
-        </nav>
+          </nav>
+        </>
       ) : null}
     </header>
   );

@@ -19,7 +19,7 @@ export default function ShopPage() {
         eyebrow="Shop"
         title="Find the program that fits your goals."
         description="Browse clinician-guided weight-management programs with transparent monthly pricing and licensed-provider review."
-        image={images.category}
+        image={images.pages.shop}
         imageAlt="VitaWellRx weight management programs"
       />
       <section className="container-page pb-20 pt-10">

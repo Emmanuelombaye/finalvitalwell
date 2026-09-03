@@ -19,7 +19,7 @@ export default function GetStartedPage() {
         eyebrow="Start here"
         title="Check eligibility and choose your program."
         description="VitaWellRx connects you with independent US-licensed providers. Complete checkout first, then finish your secure medical intake for review."
-        image={images.hero}
+        image={images.pages.getStarted}
         imageAlt="Start your VitaWellRx eligibility check"
       />
       <section className="container-page pb-20 pt-10">
