@@ -73,7 +73,7 @@ export default function ProgramsLearnPage() {
           <div className="browse-section__header">
             <h2 className="browse-section__title">Your path with VitaWellRx</h2>
           </div>
-          <ol className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <ol className="home-steps-grid">
             {homeStepCards.map((card) => (
               <HomeStepCard key={card.step} card={card} />
             ))}
