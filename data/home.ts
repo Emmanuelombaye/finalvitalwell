@@ -64,13 +64,13 @@ export const homeStepCards: HomeStepCard[] = [
     step: 2,
     title: "Complete checkout",
     description: "Purchase your VitaWellRx program securely online in minutes.",
-    image: images.consult,
+    image: images.homeSteps.checkout,
   },
   {
     step: 3,
     title: "Finish your intake",
     description: "Submit your secure health questionnaire and identification after checkout.",
-    image: images.hero,
+    image: images.homeFeatures.licensedCare,
   },
   {
     step: 4,

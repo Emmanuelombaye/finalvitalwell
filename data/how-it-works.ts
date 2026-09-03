@@ -32,28 +32,24 @@ export const howItWorksSteps: HomeStepCard[] = [
     title: "Complete checkout",
     description: "Purchase your VitaWellRx program securely online in minutes.",
     image: howItWorksImages.steps.checkout,
-    imageFit: "contain",
   },
   {
     step: 3,
     title: "Finish your intake",
     description: "Submit your secure health questionnaire and identification after checkout.",
     image: howItWorksImages.steps.intake,
-    imageFit: "contain",
   },
   {
     step: 4,
     title: "Provider review",
     description: "A licensed clinician determines whether treatment is medically appropriate for you.",
     image: howItWorksImages.steps.review,
-    imageFit: "contain",
   },
   {
     step: 5,
     title: "Create your account",
     description: "Use the same email from checkout so orders, intake, and messages stay in one place.",
     image: howItWorksImages.steps.account,
-    imageFit: "contain",
   },
   {
     step: 6,

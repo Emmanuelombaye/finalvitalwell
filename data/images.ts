@@ -23,6 +23,9 @@ export const images = {
     fulfillment: "/images/cards/home-feature-fulfillment.webp",
     journey: "/images/cards/home-feature-journey.webp",
   },
+  homeSteps: {
+    checkout: "/images/cards/home-step-checkout.webp",
+  },
   vials: {
     semaglutide: "/images/vials/semaglutide.webp",
     tirzepatide: "/images/vials/tirzepatide.webp",
