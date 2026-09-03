@@ -57,7 +57,16 @@
     margin-inline: auto;
     width: 100%;
     max-width: 78rem;
-    padding-inline: 1.25rem;
+    /* Keep horizontal inset even when paired with classes that set padding-block */
+    padding-inline: max(1.5rem, env(safe-area-inset-left, 0px))
+      max(1.5rem, env(safe-area-inset-right, 0px));
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: max(1.75rem, env(safe-area-inset-left, 0px))
+        max(1.75rem, env(safe-area-inset-right, 0px));
+    }
   }
 
   .surface-sand {
@@ -90,7 +99,7 @@
   }
 
   .home-announce__inner {
-    padding: 0.65rem 0;
+    padding-block: 0.65rem;
     text-align: center;
   }
 
@@ -122,7 +131,7 @@
     display: grid;
     align-items: center;
     gap: 2.5rem;
-    padding: 3.5rem 0 2.5rem;
+    padding-block: 3.5rem 2.5rem;
   }
 
   .home-hero__eyebrow {
@@ -292,7 +301,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem 1.5rem;
-    padding: 1rem 0;
+    padding-block: 1rem;
   }
 
   .home-trust-bar__item {
@@ -432,7 +441,7 @@
   @media (min-width: 1024px) {
     .home-hero__grid {
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      padding: 4.5rem 0 3rem;
+      padding-block: 4.5rem 3rem;
     }
 
     .home-hero__stats {
@@ -461,7 +470,7 @@
     display: grid;
     gap: 2rem;
     align-items: center;
-    padding: 2.5rem 0;
+    padding-block: 2.5rem;
   }
 
   .page-hero__eyebrow {
@@ -760,7 +769,7 @@
   @media (min-width: 1024px) {
     .page-hero__grid {
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      padding: 3rem 0;
+      padding-block: 3rem;
     }
 
     .browse-section__grid--3 {
@@ -1167,7 +1176,7 @@
     display: grid;
     gap: 1.75rem;
     align-items: center;
-    padding: 2.25rem 0 2rem;
+    padding-block: 2.25rem 2rem;
   }
 
   .hiw-hero__eyebrow {
@@ -1458,7 +1467,7 @@
     .hiw-hero__grid {
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
       gap: 2.75rem;
-      padding: 3rem 0 2.5rem;
+      padding-block: 3rem 2.5rem;
     }
 
     .hiw-steps {

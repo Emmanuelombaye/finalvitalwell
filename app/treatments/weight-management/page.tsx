@@ -26,8 +26,9 @@ export default function WeightManagementPage() {
         <MediaImage
           src={images.weightManagement}
           alt="Confident woman walking along a sunlit coastal boardwalk"
-          aspect="16 / 7"
+          aspect="16 / 9"
           fit="cover"
+          objectPosition="center top"
           sizes="(max-width: 768px) 100vw, 78rem"
           className="mt-8 overflow-hidden rounded-3xl shadow-[var(--shadow-lift)]"
         />

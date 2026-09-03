@@ -24,7 +24,7 @@ export function ImageBrowseCard({ card, variant = "tile" }: ImageBrowseCardProps
         alt={card.title}
         aspect={ASPECT[variant]}
         fit={fit}
-        objectPosition={fit === "cover" ? "50% 20%" : "center"}
+        objectPosition={fit === "cover" ? "center top" : "center"}
         sizes={
           variant === "wide"
             ? "(max-width: 768px) 100vw, 50vw"
