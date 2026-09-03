@@ -3,39 +3,25 @@ import path from "node:path";
 import sharp from "sharp";
 
 const assets = String.raw`C:\Users\user\.cursor\projects\d-ceo-vitalwell\assets`;
-const cardsDir = path.join(process.cwd(), "public", "images", "cards");
-const hiwDir = path.join(process.cwd(), "public", "images", "how-it-works");
+const root = path.join(process.cwd(), "public");
 
-const portraitJobs = [
-  ["learn-how-programs-work.png", "learn-how-programs-work.webp", 960, 1200],
-  ["learn-compounded-meds.png", "learn-compounded-meds.webp", 960, 1200],
-  ["learn-safety-eligibility.png", "learn-safety-eligibility.webp", 960, 1200],
+const jobs = [
+  ["nodoctor-how-it-works.png", "images/cards/learn-how-it-works.webp", 960, 1200],
+  ["nodoctor-provider-network.png", "images/cards/learn-provider-network.webp", 960, 1200],
+  ["nodoctor-provider-network.png", "images/cards/provider-network.webp", 960, 1200],
+  ["nodoctor-safety.png", "images/cards/learn-safety-eligibility.webp", 960, 1200],
+  ["nodoctor-consult.png", "images/cards/consult.webp", 1200, 900],
+  ["nodoctor-review.png", "images/how-it-works/step-4-review.webp", 1600, 1000],
+  ["nodoctor-network-badge.png", "images/trust/provider-network.webp", 224, 224],
 ];
 
-const landscapeJobs = [
-  ["cta-check-eligibility.png", path.join(hiwDir, "cta-eligibility.webp"), 1600, 1000],
-  ["cta-browse-programs.png", path.join(hiwDir, "cta-programs.webp"), 1600, 1000],
-  ["step-fulfilment-support.png", path.join(hiwDir, "step-6-delivery.webp"), 1600, 1000],
-];
-
-await fs.mkdir(cardsDir, { recursive: true });
-await fs.mkdir(hiwDir, { recursive: true });
-
-for (const [src, dest, w, h] of portraitJobs) {
-  const output = path.join(cardsDir, dest);
+for (const [src, dest, w, h] of jobs) {
+  const output = path.join(root, dest);
+  await fs.mkdir(path.dirname(output), { recursive: true });
   await sharp(path.join(assets, src))
     .resize(w, h, { fit: "cover", position: "centre" })
     .webp({ quality: 84, effort: 4 })
     .toFile(output);
   const meta = await sharp(output).metadata();
-  console.log(dest, meta.width, meta.height);
-}
-
-for (const [src, dest, w, h] of landscapeJobs) {
-  await sharp(path.join(assets, src))
-    .resize(w, h, { fit: "cover", position: "centre" })
-    .webp({ quality: 84, effort: 4 })
-    .toFile(dest);
-  const meta = await sharp(dest).metadata();
-  console.log(path.basename(dest), meta.width, meta.height);
+  console.log(dest, meta.width, "x", meta.height);
 }
